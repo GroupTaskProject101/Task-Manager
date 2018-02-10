@@ -1,0 +1,17 @@
+c:\users\zac\documents\visual studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\bin\Debug\Personal_Task_Manager.exe.config
+c:\users\zac\documents\visual studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\bin\Debug\Personal_Task_Manager.exe
+c:\users\zac\documents\visual studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\bin\Debug\Personal_Task_Manager.pdb
+c:\users\zac\documents\visual studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\Personal_Task_Manager.csprojResolveAssemblyReference.cache
+c:\users\zac\documents\visual studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\MainWindow.g.cs
+c:\users\zac\documents\visual studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\App.g.cs
+c:\users\zac\documents\visual studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\Personal_Task_Manager_MarkupCompile.cache
+c:\users\zac\documents\visual studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\Personal_Task_Manager_MarkupCompile.lref
+c:\users\zac\documents\visual studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\MainWindow.baml
+c:\users\zac\documents\visual studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\Personal_Task_Manager.g.resources
+c:\users\zac\documents\visual studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\Personal_Task_Manager.Properties.Resources.resources
+c:\users\zac\documents\visual studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\Personal_Task_Manager.csproj.GenerateResource.Cache
+c:\users\zac\documents\visual studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\Personal_Task_Manager.csproj.CoreCompileInputs.cache
+c:\users\zac\documents\visual studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\Personal_Task_Manager.exe
+c:\users\zac\documents\visual studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\Personal_Task_Manager.pdb
+c:\users\zac\documents\visual studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\Create_Task_Window.g.cs
+c:\users\zac\documents\visual studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\Create_Task_Window.baml
