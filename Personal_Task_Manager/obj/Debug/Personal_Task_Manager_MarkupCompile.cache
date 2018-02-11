@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Zac\Documents\Visual Studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\App.xaml
-2-369163614
+4-1260910223
 
-9-1605247209
-131569487696
-Create_Task_Window.xaml;MainWindow.xaml;
+201113485209
+17-585140955
+CreateTaskWindow.xaml;EditTaskWindow.xaml;MainWindow.xaml;MultipleTaskWindow.xaml;
 
 False
 

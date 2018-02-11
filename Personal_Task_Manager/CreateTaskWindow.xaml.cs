@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,28 +10,25 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Personal_Task_Manager
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Create_Task_Window.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class CreateTaskWindow : Window
     {
-        public MainWindow()
+        public CreateTaskWindow()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void loadTaskFileBtn_Click(object sender, RoutedEventArgs e)
         {
-            CreateTaskWindow win2 = new CreateTaskWindow();
+            MultipleTaskWindow window = new MultipleTaskWindow();
 
-            
-
-            win2.ShowDialog();
+            window.ShowDialog();
         }
     }
 }

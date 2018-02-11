@@ -6,25 +6,28 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Personal_Task_Manager.Data
 {
-    public class TaskData
+    public class TaskData : INotifyPropertyChanged
     {
         #region Fields
         private string name;
         private string description;
         private string group;
+        private string startTime;
+        private string endTime;
         private DateTime currentTime;
-        private DateTime startTime;
-        private DateTime endTime;
         private DateTime endDate;
         private Guid taskGuid;
         // TODO Finish setting up task completion system to keep track of finished tasks
-        private Dictionary<Guid, Tuple<string, string, string, bool>> taskCollection;
+        private List<string> taskCollection;
         #endregion
 
 
@@ -38,7 +41,7 @@ namespace Personal_Task_Manager.Data
             set
             {
                 name = value;
-                // TODO 2 way binding
+                OnPropertyChanged();
             }
         }
 
@@ -51,7 +54,7 @@ namespace Personal_Task_Manager.Data
             set
             {
                 description = value;
-                // TODO 2 way binding
+                OnPropertyChanged();
             }
         }
 
@@ -64,7 +67,33 @@ namespace Personal_Task_Manager.Data
             set
             {
                 group = value;
-                // TODO 2 way binding
+                OnPropertyChanged();
+            }
+        }
+
+        public string StartTime
+        {
+            get
+            {
+                return startTime;
+            }
+            set
+            {
+                startTime = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string EndTime
+        {
+            get
+            {
+                return endTime;
+            }
+            set
+            {
+                endTime = value;
+                OnPropertyChanged();
             }
         }
 
@@ -77,33 +106,7 @@ namespace Personal_Task_Manager.Data
             set
             {
                 currentTime = value;
-                /// TODO 2 way binding
-            }
-        }
-
-        public DateTime StartTime
-        {
-            get
-            {
-                return startTime;
-            }
-            set
-            {
-                startTime = value;
-                // TODO 2 way binding
-            }
-        }
-
-        public DateTime EndTime
-        {
-            get
-            {
-                return endTime;
-            }
-            set
-            {
-                endTime = value;
-                // TODO 2 way binding
+                OnPropertyChanged();
             }
         }
 
@@ -116,7 +119,7 @@ namespace Personal_Task_Manager.Data
             set
             {
                 endDate = value;
-                // TODO 2 way binding
+                OnPropertyChanged();
             }
         }
 
@@ -129,12 +132,12 @@ namespace Personal_Task_Manager.Data
             set
             {
                 taskGuid = value;
-                // TODO 2 way binding
+                OnPropertyChanged();
             }
         }
 
         // TODO This Collection should be updated to reflect appropriate format for the input values coming from save/load file
-        public Dictionary<Guid, Tuple<string, string, string, bool>> TaskCollection
+        public List<string> TaskCollection
         {
             get
             {
@@ -143,7 +146,49 @@ namespace Personal_Task_Manager.Data
             set
             {
                 taskCollection = value;
-                // TODO 2 way binding
+                OnPropertyChanged();
+            }
+        }
+        #endregion
+
+
+        #region Methods
+        /// <summary>
+        /// Static method to be used with setting default value placeholders for databinding
+        /// </summary>
+        /// <returns></returns>
+        public static ObservableCollection<TaskData> GetTaskData()
+        {
+            var aTaskData = new ObservableCollection<TaskData>();
+
+            aTaskData.Add(new TaskData()
+            {
+                Name = "Test",
+                Description = "Take 30 minute practice test for English101",
+                Group = "English 101",
+                StartTime = "6:00 PM",
+                EndTime = "11:30 PM",
+                CurrentTime = DateTime.Now,
+                EndDate = DateTime.Today,
+                TaskGUID = Guid.NewGuid(),
+            });
+            return aTaskData;
+        }
+        #endregion
+
+
+        #region Events
+        public event PropertyChangedEventHandler PropertyChanged;
+        #endregion
+
+
+        #region EvenetHandler
+        private void OnPropertyChanged(
+            [CallerMemberName] string caller = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(caller));
             }
         }
         #endregion

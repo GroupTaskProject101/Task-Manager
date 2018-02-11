@@ -6,7 +6,9 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -31,7 +33,7 @@ namespace Personal_Task_Manager.Data
             set
             {
                 name = value;
-                //TODO 2 way binding
+                OnPropertyChanged();
             }
         }
 
@@ -44,7 +46,7 @@ namespace Personal_Task_Manager.Data
             set
             {
                 groupGuid = value;
-                //TODO 2 way binding
+                OnPropertyChanged();
             }
         }
 
@@ -57,7 +59,24 @@ namespace Personal_Task_Manager.Data
             set
             {
                 taskCount = value;
-                //TODO 2 way binding
+                OnPropertyChanged();
+            }
+        }
+        #endregion
+
+
+        #region Events
+        public event PropertyChangedEventHandler PropertyChanged;
+        #endregion
+
+
+        #region EvenetHandler
+        private void OnPropertyChanged(
+            [CallerMemberName] string caller = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(caller));
             }
         }
         #endregion

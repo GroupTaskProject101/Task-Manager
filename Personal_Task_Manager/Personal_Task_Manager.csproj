@@ -36,6 +36,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -45,16 +47,22 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Create_Task_Window.xaml">
+    <Page Include="CreateTaskWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditTaskWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -68,6 +76,10 @@
     </Compile>
     <Compile Include="Data\FileData.cs" />
     <Compile Include="Data\GroupData.cs" />
+    <Compile Include="Data\IObservableCollection.cs" />
+    <Compile Include="EditTaskWindow.xaml.cs">
+      <DependentUpon>EditTaskWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\IParsable.cs" />
     <Compile Include="Interfaces\ITransferable.cs" />
     <Compile Include="Managers\CSVManager.cs" />
@@ -75,18 +87,24 @@
     <Compile Include="Managers\GroupManager.cs" />
     <Compile Include="Managers\JsonManager.cs" />
     <Compile Include="Managers\TaskManager.cs" />
-    <Compile Include="Create_Task_Window.xaml.cs">
-      <DependentUpon>Create_Task_Window.xaml</DependentUpon>
+    <Compile Include="CreateTaskWindow.xaml.cs">
+      <DependentUpon>CreateTaskWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="IObservableCollection.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MultipleTaskWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Data\TaskData.cs" />
     <Compile Include="Managers\TextManager.cs" />
+    <Compile Include="MultipleTaskWindow.xaml.cs">
+      <DependentUpon>MultipleTaskWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

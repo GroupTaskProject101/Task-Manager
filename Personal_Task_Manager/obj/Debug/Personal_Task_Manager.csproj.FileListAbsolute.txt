@@ -13,5 +13,9 @@ c:\users\zac\documents\visual studio 2017\Projects\Personal_Task_Manager\Persona
 c:\users\zac\documents\visual studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\Personal_Task_Manager.csproj.CoreCompileInputs.cache
 c:\users\zac\documents\visual studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\Personal_Task_Manager.exe
 c:\users\zac\documents\visual studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\Personal_Task_Manager.pdb
-c:\users\zac\documents\visual studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\Create_Task_Window.g.cs
-c:\users\zac\documents\visual studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\Create_Task_Window.baml
+C:\Users\Zac\Documents\Visual Studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\CreateTaskWindow.g.cs
+C:\Users\Zac\Documents\Visual Studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\EditTaskWindow.g.cs
+C:\Users\Zac\Documents\Visual Studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\MultipleTaskWindow.g.cs
+C:\Users\Zac\Documents\Visual Studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\CreateTaskWindow.baml
+C:\Users\Zac\Documents\Visual Studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\EditTaskWindow.baml
+C:\Users\Zac\Documents\Visual Studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\MultipleTaskWindow.baml

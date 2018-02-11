@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:Personal_Task_Manager"
         mc:Ignorable="d"
         Title="Personal Task Manager" Height="366.167" Width="525" Foreground="Black" MinHeight="320" MinWidth="530">
+    
     <Grid Margin="0,0,0,17">
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
@@ -28,7 +30,7 @@
                     <Button Content="Create Task" HorizontalAlignment="Left" Margin="146,278,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Grid.Column="1" FontWeight="Bold"/>
                     <Button Content="Create Group" HorizontalAlignment="Left" Margin="226,278,0,0" VerticalAlignment="Top" Width="84" Grid.Column="1" FontWeight="Bold"/>
                     <GroupBox Header="General Information" Background="White" HorizontalAlignment="Left" Height="184" Margin="15,-2,0,0" VerticalAlignment="Top" Width="243" FontWeight="Bold" Grid.ColumnSpan="2">
-                        <DataGrid Background="White" ItemsSource="{Binding myList}">
+                        <DataGrid Background="White">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Time" Width="*" IsReadOnly="True" />
                                 <DataGridTextColumn Header="Daily Tasks" Width="*" IsReadOnly="True" />
@@ -50,17 +52,9 @@
                     </GroupBox>
                 </Grid>
             </TabItem>
-            <TabItem Header="Daily">
+            <TabItem Header="Settings">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
-            <TabItem Header="Weekly">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-            <TabItem Header="Monthly">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-            <Button Content="Button" Height="100" Width="75"/>
         </TabControl>
-
     </Grid>
 </Window>

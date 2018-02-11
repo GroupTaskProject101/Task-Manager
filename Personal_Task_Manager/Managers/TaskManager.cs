@@ -42,13 +42,13 @@ namespace Personal_Task_Manager.Managers
         /// Sets the starting time to be used by the task
         /// </summary>
         /// <param name="aTime"></param>
-        public void SetStartTime(DateTime aTime) => aTaskData.StartTime = aTime;
+        public void SetStartTime(string aTime) => aTaskData.StartTime = aTime;
 
         /// <summary>
         /// Sets the ending time to be used by the task
         /// </summary>
         /// <param name="aTime"></param>
-        public void SetEndTime(DateTime aTime) => aTaskData.EndTime = aTime;
+        public void SetEndTime(string aTime) => aTaskData.EndTime = aTime;
 
         /// <summary>
         /// Sets the ending date to be used by the task
@@ -99,13 +99,13 @@ namespace Personal_Task_Manager.Managers
         /// Returns the starting time of the task
         /// </summary>
         /// <returns>DateTime</returns>
-        public DateTime GetStartTime() => aTaskData.StartTime;
+        public string GetStartTime() => aTaskData.StartTime;
 
         /// <summary>
         /// Returns the ending time of the task
         /// </summary>
         /// <returns>DateTime</returns>
-        public DateTime GetEndTime() => aTaskData.EndTime;
+        public string GetEndTime() => aTaskData.EndTime;
 
         /// <summary>
         /// Returns the ending date of the task

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Personal_Task_Manager.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,13 +16,14 @@ using System.Windows.Shapes;
 namespace Personal_Task_Manager
 {
     /// <summary>
-    /// Interaction logic for Create_Task_Window.xaml
+    /// Interaction logic for MultipleTaskWindow.xaml
     /// </summary>
-    public partial class Create_Task_Window : Window
+    public partial class MultipleTaskWindow : Window
     {
-        public Create_Task_Window()
+        public MultipleTaskWindow()
         {
             InitializeComponent();
+            dataGrid.ItemsSource = TaskData.GetTaskData();
         }
     }
 }
