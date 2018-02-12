@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2005
+VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Personal_Task_Manager", "Personal_Task_Manager\Personal_Task_Manager.csproj", "{D4746EAA-00F9-4DDD-A438-8004573CC109}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Personal_Task_ManagerTests", "Personal_Task_ManagerTests\Personal_Task_ManagerTests.csproj", "{68F7DFAD-5977-4F4A-9DE8-A14D6FAFB853}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D4746EAA-00F9-4DDD-A438-8004573CC109}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4746EAA-00F9-4DDD-A438-8004573CC109}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4746EAA-00F9-4DDD-A438-8004573CC109}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68F7DFAD-5977-4F4A-9DE8-A14D6FAFB853}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68F7DFAD-5977-4F4A-9DE8-A14D6FAFB853}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68F7DFAD-5977-4F4A-9DE8-A14D6FAFB853}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68F7DFAD-5977-4F4A-9DE8-A14D6FAFB853}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

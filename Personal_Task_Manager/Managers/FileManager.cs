@@ -56,7 +56,7 @@ namespace Personal_Task_Manager.Managers
         /// Specifies how to parse a file
         /// </summary>
         /// <returns></returns>
-        public abstract string ParseFile();
+        public abstract void ParseFile();
         #endregion
     }
 }
