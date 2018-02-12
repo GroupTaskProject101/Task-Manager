@@ -1,0 +1,16 @@
+C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_ManagerTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_ManagerTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_ManagerTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_ManagerTests\bin\Debug\Personal_Task_ManagerTests.dll
+C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_ManagerTests\bin\Debug\Personal_Task_ManagerTests.pdb
+C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_ManagerTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_ManagerTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_ManagerTests\bin\Debug\Personal_Task_Manager.exe
+C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_ManagerTests\bin\Debug\Personal_Task_Manager.pdb
+C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_ManagerTests\bin\Debug\Personal_Task_Manager.exe.config
+C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_ManagerTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_ManagerTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_ManagerTests\obj\Debug\Personal_Task_ManagerTests.csprojResolveAssemblyReference.cache
+C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_ManagerTests\obj\Debug\Personal_Task_ManagerTests.csproj.CoreCompileInputs.cache
+C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_ManagerTests\obj\Debug\Personal_Task_ManagerTests.dll
+C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_ManagerTests\obj\Debug\Personal_Task_ManagerTests.pdb

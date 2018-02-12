@@ -15,6 +15,6 @@ namespace Personal_Task_Manager.Interfaces
     interface IParsable
     {
         //This function should specify how to parse the file format being used
-        string ParseFile();
+        void ParseFile();
     }
 }
