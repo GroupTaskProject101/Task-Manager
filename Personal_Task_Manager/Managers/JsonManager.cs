@@ -19,8 +19,9 @@ namespace Personal_Task_Manager.Managers
         /// Specifies how to parse a Json file
         /// </summary>
         /// <returns></returns>
-        public override string ParseFile()
+        public override void ParseFile()
         {
+
             // TODO Implement logic to parse JSON File
             throw new NotImplementedException();
         }

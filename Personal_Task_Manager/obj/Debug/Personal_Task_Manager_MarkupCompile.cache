@@ -4,13 +4,22 @@
 winexe
 C#
 .cs
+<<<<<<< HEAD
 C:\Users\Zac\documents\visual studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\
+=======
+C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_Manager\obj\Debug\
+>>>>>>> 311d9dcdc214a851ca0471ac1de79d8276127de7
 Personal_Task_Manager
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 C:\Users\Zac\documents\visual studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\App.xaml
 5732374829
+=======
+C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_Manager\App.xaml
+4-1260910223
+>>>>>>> 311d9dcdc214a851ca0471ac1de79d8276127de7
 
 21-2119358314
 17-585140955
