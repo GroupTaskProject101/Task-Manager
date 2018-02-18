@@ -54,7 +54,7 @@ namespace Personal_Task_Manager.Managers
         /// Sets the ending date to be used by the task
         /// </summary>
         /// <param name="aDate"></param>
-        public void SetEndDate(DateTime aDate) => aTaskData.EndDate = aDate;
+        public void SetEndDate(string aDate) => aTaskData.EndDate = aDate;
 
         /// <summary>
         /// Sets the description of the task
@@ -111,7 +111,7 @@ namespace Personal_Task_Manager.Managers
         /// Returns the ending date of the task
         /// </summary>
         /// <returns>DateTime</returns>
-        public DateTime GetEndDate() => aTaskData.EndDate;
+        public string GetEndDate() => aTaskData.EndDate;
         #endregion
 
 

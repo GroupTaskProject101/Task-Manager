@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Personal_Task_Manager.Data;
 
 namespace Personal_Task_Manager
 {
@@ -24,15 +25,31 @@ namespace Personal_Task_Manager
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = TaskList.ItemsSource = TaskData.GetTaskData();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            CreateTaskWindow win2 = new CreateTaskWindow();
 
-            
+        }
 
-            win2.ShowDialog();
+        private void createTaskBtn_Click(object sender, RoutedEventArgs e)
+        {
+            CreateTaskWindow createTaskWindow = new CreateTaskWindow();
+
+            createTaskWindow.ShowDialog();
+        }
+
+        private void createGroupBtn_Click(object sender, RoutedEventArgs e)
+        {
+            CreateGroupWindow createGroupWindow = new CreateGroupWindow();
+
+            createGroupWindow.ShowDialog();
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

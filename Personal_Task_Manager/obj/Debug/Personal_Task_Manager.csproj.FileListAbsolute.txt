@@ -19,3 +19,5 @@ C:\Users\Zac\Documents\Visual Studio 2017\Projects\Personal_Task_Manager\Persona
 C:\Users\Zac\Documents\Visual Studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\CreateTaskWindow.baml
 C:\Users\Zac\Documents\Visual Studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\EditTaskWindow.baml
 C:\Users\Zac\Documents\Visual Studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\MultipleTaskWindow.baml
+C:\Users\Zac\documents\visual studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\CreateGroupWindow.g.cs
+C:\Users\Zac\documents\visual studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\CreateGroupWindow.baml

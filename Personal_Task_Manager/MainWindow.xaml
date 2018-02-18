@@ -5,55 +5,338 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Personal_Task_Manager"
         mc:Ignorable="d"
-        Title="Personal Task Manager" Height="366.167" Width="525" Foreground="Black" MinHeight="320" MinWidth="530">
-    
-    <Grid Margin="0,0,0,17">
-        
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
-        <TabControl HorizontalAlignment="Stretch" Margin="1,-2,0,-148" VerticalAlignment="Stretch" RenderTransformOrigin="0.5,0.5" >
-            <TabControl.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="-0.585"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="-0.511"/>
-                </TransformGroup>
-            </TabControl.RenderTransform>
-            <TabItem Header="Dashboard">
-                <Grid Background="White" Margin="-7,-1,-17,-1" MinHeight="310" MinWidth="535">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="18*"/>
-                        <ColumnDefinition Width="31*"/>
-                    </Grid.ColumnDefinitions>
-                    <Button Content="Create Task" HorizontalAlignment="Left" Margin="146,278,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Grid.Column="1" FontWeight="Bold"/>
-                    <Button Content="Create Group" HorizontalAlignment="Left" Margin="226,278,0,0" VerticalAlignment="Top" Width="84" Grid.Column="1" FontWeight="Bold"/>
-                    <GroupBox Header="General Information" Background="White" HorizontalAlignment="Left" Height="184" Margin="15,-2,0,0" VerticalAlignment="Top" Width="243" FontWeight="Bold" Grid.ColumnSpan="2">
-                        <DataGrid Background="White">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="Time" Width="*" IsReadOnly="True" />
-                                <DataGridTextColumn Header="Daily Tasks" Width="*" IsReadOnly="True" />
-                                <DataGridTextColumn Header="Total Tasks" Width="*" IsReadOnly="True" />
-                            </DataGrid.Columns>
-                        </DataGrid>
-                    </GroupBox>
-                    <GroupBox Header="31 JAN 18" Background="White" HorizontalAlignment="Left" Height="184" Margin="70,-2,0,0" VerticalAlignment="Top" Width="240" FontWeight="Bold" Grid.Column="1"/>
-                    <Calendar HorizontalAlignment="Left" Margin="60,11,0,0" VerticalAlignment="Top" Width="250" Height="168" Grid.Column="1"/>
-                    <GroupBox Header="Current Tasks" Background="White" HorizontalAlignment="Left" Height="94" Margin="14,178,0,0" VerticalAlignment="Top" Width="494" FontWeight="Bold" Grid.ColumnSpan="2">
-                        <DataGrid Background="White" FontSize="10">
-                            <DataGrid.Columns>
-                                <DataGridTextColumn Header="Task No" Width="*"/>
-                                <DataGridTextColumn Header="Due Date" Width="*"/>
-                                <DataGridTextColumn Header="Name" Width="2*"></DataGridTextColumn>
-                                <DataGridTextColumn Header="Description" Width="2*"></DataGridTextColumn>
-                            </DataGrid.Columns>
-                        </DataGrid>
-                    </GroupBox>
-                </Grid>
+        Title="Personal Task Manager" 
+        Height="577.167" 
+        Width="545.667" 
+        Foreground="Black" 
+        MinHeight="320"
+        MinWidth="530" 
+        ResizeMode="NoResize">
+
+    <Grid Margin="0,0,-6,-1"
+          Height="504" 
+          VerticalAlignment="Top">
+        <DockPanel Margin="0,0,0,474">
+            <Menu DockPanel.Dock="Top" 
+                  Margin="0,0,10,0" 
+                  Height="17" 
+                  VerticalAlignment="Top"
+                  HorizontalAlignment="Stretch"
+                  Background="White">
+                <MenuItem Header="_File">
+                    <MenuItem Header="_Open"/>
+                    <MenuItem Header="_Load"/>
+                    <MenuItem Header="_Save"/>
+                    <Separator/>
+                    <MenuItem Header="_Exit" 
+                              Click="MenuItem_Click"/>
+                </MenuItem>
+                <MenuItem Header="_Edit">
+
+                </MenuItem>
+                <MenuItem Header="_View">
+
+                </MenuItem>
+                <MenuItem Header="_Help">
+
+                </MenuItem>
+            </Menu>
+            <Separator Margin="0,0,0,10"/>
+        </DockPanel>
+
+        <TabControl HorizontalAlignment="Center" 
+                    Margin="10,30,10,-34" 
+                    VerticalAlignment="Center" 
+                    Height="508" 
+                    Width="526">
+            <TabItem Header="DashBoard" 
+                     Opacity="0.6"
+                     Background="AliceBlue">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel Orientation="Horizontal" 
+                                Height="232">
+                        <GroupBox Header="General Task Information" 
+                                  HorizontalAlignment="Center" 
+                                  Height="190" 
+                                  Margin="20,20,0,-199" 
+                                  VerticalAlignment="Top" 
+                                  Width="220" 
+                                  FontWeight="Normal">
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Daily" 
+                                           HorizontalAlignment="Left" 
+                                           Margin="10,10,0,0" 
+                                           VerticalAlignment="Top"/>
+                                    <TextBox Width="133" 
+                                             Height="20" 
+                                             HorizontalAlignment="Right" 
+                                             Margin="18,0,0,0" 
+                                             Text="0"
+                                             IsReadOnly="True"
+                                             Background="LightGray" 
+                                             Opacity="0.6"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Monthly" 
+                                           HorizontalAlignment="Left" 
+                                           Margin="10,10,0,0" 
+                                           VerticalAlignment="Top"/>
+                                    <TextBox Width="133" 
+                                             Height="20" 
+                                             HorizontalAlignment="Right" 
+                                             Text="0"
+                                             IsReadOnly="True"
+                                             Background="LightGray" 
+                                             Opacity="0.6">
+                                    </TextBox>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Total" 
+                                           HorizontalAlignment="Left" 
+                                           Margin="10,10,0,0" 
+                                           VerticalAlignment="Top"/>
+                                    <TextBox Width="133" 
+                                             Height="20" 
+                                             HorizontalAlignment="Right" 
+                                             Margin="19,0,0,0" 
+                                             Text="0"
+                                             IsReadOnly="True"
+                                             Background="LightGray" 
+                                             Opacity="0.6">
+                                    </TextBox>
+                                </StackPanel>
+                                <Separator Margin="0,10,0,5"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="Time:" 
+                                           Margin="35,10,0,0" 
+                                           FontStyle="Italic"/>
+                                    <TextBox Width="100"
+                                             Height="20"
+                                             HorizontalAlignment="Right"
+                                             Margin="5,10,0,0"
+                                             IsReadOnly="True" 
+                                             Text="12:00 PM"
+                                             Background="LightGray"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </GroupBox>
+                        <GroupBox Header="Calendar" 
+                                  HorizontalAlignment="Center" 
+                                  Height="190" 
+                                  Margin="10,20,10,-199" 
+                                  VerticalAlignment="Top" 
+                                  Width="220" 
+                                  FontWeight="Normal">
+                            <Calendar/>
+                        </GroupBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" 
+                                Margin="10,0,0,0">
+                        <GroupBox Header="Task List"
+                                  Grid.ColumnSpan="2" 
+                                  Height="189">
+                            <DataGrid Name="TaskList"
+                                      Width="465"
+                                      Background="White"
+                                      AlternationCount="2"
+                                      AlternatingRowBackground="AliceBlue"
+                                      AutoGenerateColumns="False"
+                                      IsReadOnly="True">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Header="Task No" 
+                                                        Width="*"
+                                                        Binding="{Binding TaskNo}"/>
+                                    <DataGridTextColumn Header="Due Date" 
+                                                        Width="*"
+                                                        Binding="{Binding EndDate}"/>
+                                    <DataGridTextColumn Header="Name" 
+                                                        Width="*"
+                                                        Binding="{Binding Name}"/>
+                                    <DataGridTextColumn Header="Description" 
+                                                        Width="3*"
+                                                        Binding="{Binding Description}"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+
+                        </GroupBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Group"/>
+                        <ComboBox Width="122"
+                                  Height="20">
+                            <ComboBoxItem Content="Test"/>
+                        </ComboBox>
+                        <Button x:Name="createTaskBtn"
+                                Content="Create Task"
+                                Width="80"
+                                Height="20"
+                                Margin="150,0,0,0" 
+                                Click="createTaskBtn_Click" 
+                                HorizontalAlignment="Right" 
+                                VerticalAlignment="Center"/>
+                        <Separator/>
+                        <Button x:Name="createGroupBtn"
+                                Content="Create Group"
+                                Width="80"
+                                Height="20"
+                                Margin="5,0,0,0" 
+                                Click="createGroupBtn_Click" 
+                                HorizontalAlignment="Right" 
+                                VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="Progress"/>
+                        <ProgressBar Width="439"
+                                     Height="10"
+                                     Margin="0,0,0,0" 
+                                     AutomationProperties.HelpText="Progress"/>
+                    </StackPanel>
+                </StackPanel>
             </TabItem>
-            <TabItem Header="Settings">
-                <Grid Background="#FFE5E5E5"/>
+            <TabItem Header="Search" 
+                     Opacity="0.6"
+                     Background="AliceBlue">
+                <StackPanel Orientation="Vertical" 
+                            Margin="0,5">
+                    <StackPanel Orientation="Horizontal">
+                        <GroupBox Header="Searching" 
+                                  Margin="2,0,0,0" 
+                                  VerticalAlignment="Center" 
+                                  HorizontalAlignment="Center">
+                            <StackPanel Orientation="Horizontal" 
+                                        Width="502">
+                                <Label Content="Search"/>
+                                <TextBox Width="250" 
+                                         Text="Enter Search Term" 
+                                         HorizontalAlignment="Center" 
+                                         VerticalAlignment="Center" 
+                                         Opacity="0.6"/>
+                                <Separator/>
+                                <Label Content="Category: "/>
+                                <ComboBox Width="138"
+                                          Height="20" 
+                                          Margin="0,4,0,3">
+                                    <ComboBoxItem Content="Name"/>
+                                    <ComboBoxItem Content="Description"/>
+                                    <ComboBoxItem Content="Guid"/>
+                                    <ComboBoxItem Content="Group"/>
+                                    <ComboBoxItem Content="EndDate"/>
+                                    <ComboBoxItem Content="StartTime"/>
+                                    <ComboBoxItem Content="All Categories"/>
+                                </ComboBox>
+                            </StackPanel>
+                        </GroupBox>
+                    </StackPanel>
+                    <Separator/>
+                    <TreeView Width="500"
+                              Height="380">
+                        <TreeViewItem Header="Test">
+                            <TreeViewItem Header="TestChild1">
+                                <TreeViewItem Header="TestChild1"/>
+                                <TreeViewItem Header="TestChild2"/>
+                                <TreeViewItem Header="TestChild3"/>
+                            </TreeViewItem>
+                            <TreeViewItem Header="TestChild2"/>
+                            <TreeViewItem Header="TestChild3"/>
+                        </TreeViewItem>
+                        <TreeViewItem Header="Test1">
+                            <TreeViewItem Header="TestChild1"/>
+                            <TreeViewItem Header="TestChild2"/>
+                            <TreeViewItem Header="TestChild3"/>
+                        </TreeViewItem>
+                        <TreeViewItem Header="Test2">
+                            <TreeViewItem Header="TestChild1"/>
+                            <TreeViewItem Header="TestChild2"/>
+                            <TreeViewItem Header="TestChild3"/>
+                        </TreeViewItem>
+                    </TreeView>
+                    <Separator Margin="10,5"/>
+                    <Button Content="Begin Search" 
+                            Margin="10,0"
+                            IsEnabled="False"/>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Settings" 
+                     Opacity="0.6"
+                     Background="AliceBlue">
+                <StackPanel Orientation="Vertical" 
+                            Margin="10,0,4,0">
+                    <GroupBox Header="Default Save Information" 
+                              Margin="10,0" 
+                              Height="55">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Path" 
+                                   Margin="3,0,0,0"/>
+                            <TextBox 
+                                     Text="Enter Full Save Path" 
+                                     Opacity="0.6" 
+                                     Width="373" 
+                                     Margin="0,4,0,7"/>
+                            <Button Content="Browse"
+                                    Width="50"
+                                    Height="20" 
+                                    Margin="5,4,0,8"/>
+                        </StackPanel>
+                    </GroupBox>
+                    <Separator Margin="0,10,0,20"/>
+                    <StackPanel Orientation="Horizontal" 
+                                Margin="0,0,0,0">
+                        <GroupBox Header="Output File Information"
+                                  Width="175">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="JSON"/>
+                                <RadioButton HorizontalAlignment="Center" 
+                                             VerticalAlignment="Center"/>
+                                <Label Content="CSV"/>
+                                <RadioButton HorizontalAlignment="Center" 
+                                             VerticalAlignment="Center"/>
+                                <Label Content="Text"/>
+                                <RadioButton HorizontalAlignment="Center" 
+                                             VerticalAlignment="Center"/>
+
+                            </StackPanel>
+                        </GroupBox>
+                        <Separator Margin="10,2,0,2"/>
+                        <GroupBox Header="Notifications"
+                                  Width="175">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="On" 
+                                       VerticalAlignment="Center" 
+                                       HorizontalAlignment="Center" 
+                                       Margin="0,0,0,1"/>
+                                <RadioButton HorizontalAlignment="Center" 
+                                             VerticalAlignment="Center" 
+                                             Margin="0,6,0,7"/>
+                                <Label Content="Off" 
+                                       HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center"/>
+                                <RadioButton HorizontalAlignment="Center" 
+                                             VerticalAlignment="Center" 
+                                             Margin="0,6,0,7"/>
+                            </StackPanel>
+                        </GroupBox>
+                        <Separator Margin="10,2,0,2"/>
+                        <GroupBox Header="Group Deletion">
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="Enable"/>
+                                <RadioButton HorizontalAlignment="Center" 
+                                             VerticalAlignment="Center"/>
+                                <Label Content="Disable"/>
+                                <RadioButton HorizontalAlignment="Center" 
+                                             VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </GroupBox>
+                    </StackPanel>
+                    <Separator Margin="0,10"/>
+                    <Grid>
+                        <GroupBox Header="Additional Settings">
+                            <StackPanel Orientation="Horizontal">
+
+                            </StackPanel>
+                        </GroupBox>
+                    </Grid>
+                </StackPanel>
             </TabItem>
         </TabControl>
     </Grid>

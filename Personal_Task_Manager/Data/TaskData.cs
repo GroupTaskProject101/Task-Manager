@@ -18,13 +18,14 @@ namespace Personal_Task_Manager.Data
     public class TaskData : INotifyPropertyChanged
     {
         #region Fields
+        private int taskNo;
         private string name;
         private string description;
         private string group;
         private string startTime;
         private string endTime;
         private DateTime currentTime;
-        private DateTime endDate;
+        private string endDate;
         private Guid taskGuid;
         // TODO Finish setting up task completion system to keep track of finished tasks
         private List<string> taskCollection;
@@ -110,7 +111,7 @@ namespace Personal_Task_Manager.Data
             }
         }
 
-        public DateTime EndDate
+        public string EndDate
         {
             get
             {
@@ -149,6 +150,19 @@ namespace Personal_Task_Manager.Data
                 OnPropertyChanged();
             }
         }
+
+        public int TaskNo
+        {
+            get
+            {
+                return taskNo;
+            }
+            set
+            {
+                taskNo = value;
+                OnPropertyChanged();
+            }
+        }
         #endregion
 
 
@@ -163,13 +177,98 @@ namespace Personal_Task_Manager.Data
 
             aTaskData.Add(new TaskData()
             {
-                Name = "Test",
+                TaskNo = 0,
+                Name = "Test0",
                 Description = "Take 30 minute practice test for English101",
                 Group = "English 101",
                 StartTime = "6:00 PM",
                 EndTime = "11:30 PM",
                 CurrentTime = DateTime.Now,
-                EndDate = DateTime.Today,
+                EndDate = DateTime.Today.ToShortDateString(),
+                TaskGUID = Guid.NewGuid(),
+            });
+            aTaskData.Add(new TaskData()
+            {
+                TaskNo = 1,
+                Name = "Test1",
+                Description = "Take 30 minute practice test for English101",
+                Group = "English 101",
+                StartTime = "6:00 PM",
+                EndTime = "11:30 PM",
+                CurrentTime = DateTime.Now,
+                EndDate = DateTime.Today.ToShortDateString(),
+                TaskGUID = Guid.NewGuid(),
+            });
+            aTaskData.Add(new TaskData()
+            {
+                TaskNo = 2,
+                Name = "Test2",
+                Description = "Take 30 minute practice test for English101",
+                Group = "English 101",
+                StartTime = "6:00 PM",
+                EndTime = "11:30 PM",
+                CurrentTime = DateTime.Now,
+                EndDate = DateTime.Today.ToShortDateString(),
+                TaskGUID = Guid.NewGuid(),
+            });
+            aTaskData.Add(new TaskData()
+            {
+                TaskNo = 3,
+                Name = "Test3",
+                Description = "Take 30 minute practice test for English101",
+                Group = "English 101",
+                StartTime = "6:00 PM",
+                EndTime = "11:30 PM",
+                CurrentTime = DateTime.Now,
+                EndDate = DateTime.Today.ToShortDateString(),
+                TaskGUID = Guid.NewGuid(),
+            });
+            aTaskData.Add(new TaskData()
+            {
+                TaskNo = 4,
+                Name = "Test4",
+                Description = "Take 30 minute practice test for English101",
+                Group = "English 101",
+                StartTime = "6:00 PM",
+                EndTime = "11:30 PM",
+                CurrentTime = DateTime.Now,
+                EndDate = DateTime.Today.ToShortDateString(),
+                TaskGUID = Guid.NewGuid(),
+            });
+            aTaskData.Add(new TaskData()
+            {
+                TaskNo = 5,
+                Name = "Test5",
+                Description = "Take 30 minute practice test for English101",
+                Group = "English 101",
+                StartTime = "6:00 PM",
+                EndTime = "11:30 PM",
+                CurrentTime = DateTime.Now,
+                EndDate = DateTime.Today.ToShortDateString(),
+                TaskGUID = Guid.NewGuid(),
+            });
+            aTaskData.Add(new TaskData()
+            {
+                TaskNo = 6,
+                Name = "Test6",
+                Description = "Take 30 minute practice test for English101",
+                Group = "English 101",
+                StartTime = "6:00 PM",
+                EndTime = "11:30 PM",
+                CurrentTime = DateTime.Now,
+                EndDate = DateTime.Today.ToShortDateString(),
+                TaskGUID = Guid.NewGuid(),
+            });
+            aTaskData.Add(new TaskData()
+            {
+                TaskNo = 7,
+                Name = "Test7",
+                Description = "Take 30 minute practice test for English101",
+                Group = "English 101",
+                StartTime = "6:00 PM",
+                EndTime = "11:30 PM",
+                CurrentTime = DateTime.Now,
+                EndDate = DateTime.Today.ToShortDateString(),
                 TaskGUID = Guid.NewGuid(),
             });
             return aTaskData;

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Zac\Documents\Visual Studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\
+C:\Users\Zac\documents\visual studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\obj\Debug\
 Personal_Task_Manager
 none
 false
 DEBUG;TRACE
-C:\Users\Zac\Documents\Visual Studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\App.xaml
-4-1260910223
+C:\Users\Zac\documents\visual studio 2017\Projects\Personal_Task_Manager\Personal_Task_Manager\App.xaml
+5732374829
 
-201113485209
+21-2119358314
 17-585140955
-CreateTaskWindow.xaml;EditTaskWindow.xaml;MainWindow.xaml;MultipleTaskWindow.xaml;
+CreateGroupWindow.xaml;CreateTaskWindow.xaml;EditTaskWindow.xaml;MainWindow.xaml;MultipleTaskWindow.xaml;
 
 False
 

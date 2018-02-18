@@ -1,0 +1,45 @@
+﻿<Window x:Class="Personal_Task_Manager.CreateGroupWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Personal_Task_Manager"
+        mc:Ignorable="d"
+        Title="CreateGroupWindow" 
+        Height="260" 
+        Width="310">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <GroupBox Header="Group Information" 
+                          FontWeight="Bold">
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Name"/>
+                            <TextBox Text="Enter Group Name" 
+                                     Width="240"
+                                     Height="20" 
+                                     FontWeight="Normal"/>
+                        </StackPanel>
+                        <Separator/>
+                        <StackPanel Orientation="Vertical">
+                            <Label Content="Description" 
+                                   FontWeight="Bold"/>
+                            <TextBox Text="Enter Group Description" 
+                                     Width="280"
+                                     Height="110" 
+                                     FontWeight="Normal"/>
+                        </StackPanel>
+                        <Separator/>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="Add Group"
+                                    Width=" 280"
+                                    Height="20"
+                                    Margin="0,5,0,2"/>
+                        </StackPanel>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

@@ -15,20 +15,13 @@ using System.Windows.Shapes;
 namespace Personal_Task_Manager
 {
     /// <summary>
-    /// Interaction logic for Create_Task_Window.xaml
+    /// Interaction logic for CreateGroupWindow.xaml
     /// </summary>
-    public partial class CreateTaskWindow : Window
+    public partial class CreateGroupWindow : Window
     {
-        public CreateTaskWindow()
+        public CreateGroupWindow()
         {
             InitializeComponent();
-        }
-
-        private void loadTaskFileBtn_Click_1(object sender, RoutedEventArgs e)
-        {
-            MultipleTaskWindow multipleTaskWindow = new MultipleTaskWindow();
-
-            multipleTaskWindow.ShowDialog();
         }
     }
 }

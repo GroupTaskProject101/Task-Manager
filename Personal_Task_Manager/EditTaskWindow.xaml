@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Personal_Task_Manager"
         mc:Ignorable="d"
-        Title="Edit Task Window" Height="242.045" Width="393.75">
-    <Grid>
+        Title="Edit Task Window" Height="242.045" Width="444.77">
+    <Grid Margin="0,0,2,0">
         <Button Name="UpdateBtn" 
                 Content="Update Task" 
                 HorizontalAlignment="Left" 
-                Margin="317,182,0,0" 
+                Margin="366,182,0,0" 
                 VerticalAlignment="Top" 
                 Width="59" 
                 FontSize="10" 
@@ -30,7 +30,7 @@
                  TextWrapping="Wrap" 
                  Text="Enter Task Description" 
                  VerticalAlignment="Top" 
-                 Width="366" 
+                 Width="415" 
                  FontSize="8" 
                  FontStyle="Italic"/>
         <Label Name="startTimeLbl"
@@ -51,13 +51,13 @@
                Width="58"/>
         <ComboBox Name="editGroupCb"
                   HorizontalAlignment="Left" 
-                  Margin="112,180,0,0" 
+                  Margin="78,179,0,0" 
                   VerticalAlignment="Top" 
-                  Width="20" 
+                  Width="18" 
                   IsEditable="True" 
                   IsReadOnly="True"/>
         <Label Name="addTaskGroupLbl"
-               Content="Add Task to Group" 
+               Content="Task Group" 
                HorizontalAlignment="Left" 
                Margin="10,179,0,0" 
                VerticalAlignment="Top" 
@@ -89,7 +89,7 @@
                   Height="73" 
                   Margin="10,10,0,0" 
                   VerticalAlignment="Top" 
-                  Width="366" 
+                  Width="415" 
                   FontWeight="Bold" 
                   FontSize="10">
             <TextBox Name="editTaskNameTbox"
@@ -110,14 +110,6 @@
                VerticalAlignment="Top" 
                FontSize="10" 
                FontWeight="Bold"/>
-        <Expander Name="editDateExp"
-                  Header="Date" 
-                  HorizontalAlignment="Left" 
-                  Height="100" 
-                  Margin="298,42,-12,0" 
-                  VerticalAlignment="Top" 
-                  Width="100">
-            <Grid Background="#FFE5E5E5"/>
-        </Expander>
+        <DatePicker HorizontalAlignment="Left" Margin="288,39,0,0" VerticalAlignment="Top" Width="125" IsTodayHighlighted="True"/>
     </Grid>
 </Window>
