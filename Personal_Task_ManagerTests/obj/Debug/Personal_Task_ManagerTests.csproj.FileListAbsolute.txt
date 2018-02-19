@@ -14,3 +14,7 @@ C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_ManagerTests\obj\Deb
 C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_ManagerTests\obj\Debug\Personal_Task_ManagerTests.csproj.CoreCompileInputs.cache
 C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_ManagerTests\obj\Debug\Personal_Task_ManagerTests.dll
 C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_ManagerTests\obj\Debug\Personal_Task_ManagerTests.pdb
+C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_ManagerTests\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_ManagerTests\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_ManagerTests\bin\Debug\CsvHelper.dll
+C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_ManagerTests\bin\Debug\CsvHelper.xml
