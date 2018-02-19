@@ -45,3 +45,9 @@ C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_Manager\obj\Debug\Pe
 C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_Manager\obj\Debug\Personal_Task_Manager.exe
 C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_Manager\obj\Debug\Personal_Task_Manager.pdb
 >>>>>>> 311d9dcdc214a851ca0471ac1de79d8276127de7
+C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_Manager\obj\Debug\CreateGroupWindow.g.cs
+C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_Manager\obj\Debug\CreateGroupWindow.baml
+C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_Manager\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_Manager\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_Manager\bin\Debug\CsvHelper.dll
+C:\Users\Dominic\Desktop\project\Task-Manager\Personal_Task_Manager\bin\Debug\CsvHelper.xml

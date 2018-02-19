@@ -67,8 +67,32 @@ namespace Personal_Task_Manager.Managers
             do
             {
                 TaskData nextTask = new TaskData();
-                nextLine = nextLine.Replace(endOfLine, "");
-                string[] values = nextLine.Split(',');
+                string[] values = new string[fields.Length];
+
+                for(int i = 0; i < values.Length;i++)
+                {
+                    nextLine = nextLine.Trim();
+                    string nextSection = "";
+                    if (nextLine.Contains(","))
+                    {
+                         nextSection = nextLine.Substring(0, nextLine.IndexOf(','));
+                    } else
+                    {
+                         nextSection = nextLine.Substring(0, nextLine.IndexOf(endOfLine));
+                    }
+
+                    if (nextSection.StartsWith("\""))
+                    {
+                        while(!nextSection.EndsWith("\","))
+                        {
+                            nextSection += nextLine.Substring(0, nextLine.IndexOf(','));
+                        }
+                    }
+                    nextLine = nextLine.Substring(nextLine.IndexOf(','));
+                    values[i] = nextSection;
+                }
+
+
                 if (values.Length != fields.Length)
                 {
                     //temporary

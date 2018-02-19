@@ -17,14 +17,13 @@ namespace Personal_Task_Manager.Managers.Tests
         {
             TextManager manager = new TextManager();
             manager.ParseFile();
-            foreach (string next in manager.Fields)
-            { 
-                Console.WriteLine(next);
-            }
-            Console.WriteLine(manager.EndOfLine);
             foreach (TaskData next in manager.TaskCollection)
             {
                 Console.WriteLine(next.Name);
+                Console.WriteLine(next.Group);
+                Console.WriteLine(next.EndTime);
+                Console.WriteLine(next.StartTime);
+                Console.WriteLine(next.Description);
             }
         }
     }
