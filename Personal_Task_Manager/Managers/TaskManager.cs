@@ -6,10 +6,6 @@
 
 using Personal_Task_Manager.Data;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Personal_Task_Manager.Managers
 {
@@ -36,25 +32,25 @@ namespace Personal_Task_Manager.Managers
         /// Sets the current time
         /// </summary>
         /// <param name="aTime"></param>
-        public void SetCurrentTime(DateTime aTime) => aTaskData.CurrentTime = aTime;
+        //public void SetCurrentTime(DateTime aTime) => aTaskData.CurrentTime = aTime;
 
         /// <summary>
         /// Sets the starting time to be used by the task
         /// </summary>
         /// <param name="aTime"></param>
-        public void SetStartTime(string aTime) => aTaskData.StartTime = aTime;
+        public void SetStartDate(DateTime aTime) => aTaskData.StartDate = aTime;
 
         /// <summary>
         /// Sets the ending time to be used by the task
         /// </summary>
         /// <param name="aTime"></param>
-        public void SetEndTime(string aTime) => aTaskData.EndTime = aTime;
+        public void SetEndDate(DateTime aTime) => aTaskData.EndDate = aTime;
 
         /// <summary>
         /// Sets the ending date to be used by the task
         /// </summary>
         /// <param name="aDate"></param>
-        public void SetEndDate(string aDate) => aTaskData.EndDate = aDate;
+        //public void SetEndDate(string aDate) => aTaskData.EndDate = aDate;
 
         /// <summary>
         /// Sets the description of the task
@@ -93,25 +89,25 @@ namespace Personal_Task_Manager.Managers
         /// Returns the current time
         /// </summary>
         /// <returns>DateTime</returns>
-        public DateTime GetCurrentTime() => aTaskData.CurrentTime;
+        //public DateTime GetCurrentTime() => aTaskData.CurrentTime;
 
         /// <summary>
         /// Returns the starting time of the task
         /// </summary>
         /// <returns>DateTime</returns>
-        public string GetStartTime() => aTaskData.StartTime;
+        public DateTime GetStartTime() => aTaskData.StartDate;
 
         /// <summary>
         /// Returns the ending time of the task
         /// </summary>
         /// <returns>DateTime</returns>
-        public string GetEndTime() => aTaskData.EndTime;
+        public DateTime GetEndTime() => aTaskData.EndDate;
 
         /// <summary>
         /// Returns the ending date of the task
         /// </summary>
         /// <returns>DateTime</returns>
-        public string GetEndDate() => aTaskData.EndDate;
+        //public string GetEndDate() => aTaskData.EndDate;
         #endregion
 
 

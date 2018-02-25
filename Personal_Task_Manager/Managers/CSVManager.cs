@@ -12,12 +12,8 @@
 using CsvHelper;
 using Personal_Task_Manager.Data;
 using Personal_Task_Manager.Interfaces;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Personal_Task_Manager.Managers
 {
@@ -41,9 +37,9 @@ namespace Personal_Task_Manager.Managers
             { 
                 TaskData nextTask = new TaskData();
                 nextTask.Name = csv.GetField<string>("name");
-                nextTask.Group=csv.GetField<string>("description");
+                //nextTask.Group=csv.GetField<string>("description");
                 nextTask.Description=csv.GetField<string>("group");
-                nextTask.StartTime = csv.GetField<string>("startTime");
+                //nextTask.StartTime = csv.GetField<string>("startTime");
                 taskCollection.Add(nextTask);
             }
         }

@@ -1,19 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Personal_Task_Manager.Data;
+using System.Windows.Threading;
+using System.Globalization;
+using System.Windows.Forms;
 
 namespace Personal_Task_Manager
 {
@@ -25,12 +15,32 @@ namespace Personal_Task_Manager
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = TaskList.ItemsSource = TaskData.GetTaskData();
+            InitializeClock();
+            InitializeTimingLoop();
+
+            TaskData aTaskData = new TaskData();
+            GroupData aGroupData = new GroupData();
+
+            DataContext = aTaskData;
+            TaskList.DataContext = TaskData.GetTaskData();
+            GroupSelectionCB.ItemsSource = TaskData.aTaskGroup;
         }
 
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void InitializeTimingLoop()
         {
+            var timer = new Timer();
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.Interval = 1000;
+            timer.Start();
+        }
 
+        private void InitializeClock()
+        {
+            DispatcherTimer clock = new DispatcherTimer(new TimeSpan(0, 0, 1),
+                DispatcherPriority.Normal, delegate
+                {
+                    this.currentTime.Text = DateTime.Now.ToString("hh:mm:ss tt", CultureInfo.InvariantCulture);
+                }, this.Dispatcher);
         }
 
         private void createTaskBtn_Click(object sender, RoutedEventArgs e)
@@ -50,6 +60,12 @@ namespace Personal_Task_Manager
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        void timer_Tick(object sender, EventArgs e)
+        {
+            //TotalTaskTB.Text = TaskData.count.ToString();
+          
         }
     }
 }

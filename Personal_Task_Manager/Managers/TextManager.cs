@@ -16,8 +16,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Personal_Task_Manager.Managers
 {
@@ -40,95 +38,40 @@ namespace Personal_Task_Manager.Managers
         /// </summary>
         public override void ParseFile()
         {
-            StreamReader reader = File.OpenText("C:\\Users\\Dominic\\Desktop\\testFile.txt");
-            string nextLine;
+            StreamReader reader = File.OpenText("C:/Users/Zac/Desktop/testFile.txt");
+            string line;
 
-            while ((nextLine = reader.ReadLine()).StartsWith("#"))
+            while ((line = reader.ReadLine()) != null)
             {
-                if (nextLine.StartsWith("#Fields"))
+                string[] items = line.Split('$').Select(p => p.Trim()).Where(p => !string.IsNullOrWhiteSpace(p)).ToArray();
+                
+                foreach (string item in items)
                 {
-                    nextLine = nextLine.Substring(nextLine.IndexOf(":")+1);
-                    nextLine = nextLine.Replace(" ", "");
-                    nextLine = nextLine.Replace("\"", "");
-                    Fields = nextLine.Split(',');
+                    string[] tempItems = item.Split(',');
+                    TaskData aTaskData = new TaskData();
 
-                }
-                else
-                {
-                    if(nextLine.StartsWith("#End of line character:"))
-                    {
-                        nextLine = nextLine.Substring(nextLine.IndexOf(":") + 1);
-                        nextLine = nextLine.Replace(" ", "");
-                        EndOfLine = nextLine;
-                    }
+                    aTaskData.TaskNo = TaskData.Count++;
+                    aTaskData.StartDate = DateTime.Parse(tempItems[0]);
+                    aTaskData.EndDate = DateTime.Parse(tempItems[1]);
+                    aTaskData.Name = tempItems[2];
+                    aTaskData.Description = tempItems[3];
+                    aTaskData.Group = tempItems[4];
+
+                    TaskData.aTaskCollection.Add(aTaskData);
                 }
             }
-
-            do
-            {
-                TaskData nextTask = new TaskData();
-                string[] values = new string[fields.Length];
-
-                for(int i = 0; i < values.Length;i++)
-                {
-                    nextLine = nextLine.Trim();
-                    string nextSection = "";
-                    if (nextLine.Contains(","))
-                    {
-                         nextSection = nextLine.Substring(0, nextLine.IndexOf(','));
-                    } else
-                    {
-                         nextSection = nextLine.Substring(0, nextLine.IndexOf(endOfLine));
-                    }
-
-                    if (nextSection.StartsWith("\""))
-                    {
-                        while(!nextSection.EndsWith("\","))
-                        {
-                            nextSection += nextLine.Substring(0, nextLine.IndexOf(','));
-                        }
-                    }
-                    nextLine = nextLine.Substring(nextLine.IndexOf(','));
-                    values[i] = nextSection;
-                }
-
-
-                if (values.Length != fields.Length)
-                {
-                    //temporary
-                    throw new NotImplementedException();
-                }
-                for (int i = 0; i < values.Length; i++)
-                {
-                    switch (fields[i])
-                    {
-                        case "Date":
-                            //needs more information
-                            break;
-                        case "startTime":
-                            nextTask.StartTime = values[i];
-                            break;
-                        case "endTime":
-                            nextTask.EndTime = values[i];
-                            break;
-                        case "name":
-                            nextTask.Name = values[i];
-                            break;
-                        case "description":
-                            nextTask.Description = values[i];
-                            break;
-                        case "group":
-                            nextTask.Group = values[i];
-                            break;
-                        default:
-                            //temporary
-                            throw new NotImplementedException();
-                    }
-                }
-                taskCollection.Add(nextTask);
-            } while ((nextLine = reader.ReadLine()) != null);
-
             reader.Close();
         }
     }
 }
+
+
+//    TaskNo = 0,
+//    Name = "Test0",
+//    Description = "Take 30 minute practice test for English101",
+//    Group = "English 101",
+//    StartTime = "6:00 PM",
+//    EndTime = "11:30 PM",
+//    CurrentTime = DateTime.Now,
+//    EndDate = DateTime.Today.ToShortDateString(),
+//    TaskGUID = Guid.NewGuid(),

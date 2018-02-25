@@ -58,7 +58,8 @@
                 <Button Name="loadTaskFileBtn"
                         Content="Load Task File"
                         Height="20"
-                        Margin="170,0,10,0" Click="loadTaskFileBtn_Click_1"/>
+                        Margin="170,0,10,0" 
+                        Click="loadTaskFileBtn_Click_1"/>
                 <Separator/>
                 <Button Content="Add Task"
                         Height="20"/>

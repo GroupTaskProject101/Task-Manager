@@ -20,6 +20,7 @@ namespace Personal_Task_Manager.Data
         private string name;
         private Guid groupGuid;
         private int taskCount;
+
         #endregion
 
 

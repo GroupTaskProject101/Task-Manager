@@ -17,45 +17,56 @@
           Height="504" 
           VerticalAlignment="Top">
         <DockPanel Margin="0,0,0,474">
-            <Menu DockPanel.Dock="Top" 
+            <Menu x:Name="Menu" 
+                  DockPanel.Dock="Top" 
                   Margin="0,0,10,0" 
                   Height="17" 
                   VerticalAlignment="Top"
                   HorizontalAlignment="Stretch"
                   Background="White">
-                <MenuItem Header="_File">
+                <MenuItem Name="FileMenu" 
+                          Header="_File">
                     <MenuItem Header="_Open"/>
-                    <MenuItem Header="_Load"/>
                     <MenuItem Header="_Save"/>
                     <Separator/>
                     <MenuItem Header="_Exit" 
                               Click="MenuItem_Click"/>
                 </MenuItem>
-                <MenuItem Header="_Edit">
-
+                <MenuItem Name="EditMenu" 
+                          Header="_Edit">
+                    <MenuItem Header="_Edit Task"/>
+                    <MenuItem Header="_Delete"/>
                 </MenuItem>
-                <MenuItem Header="_View">
-
+                <MenuItem Name="View" 
+                          Header="_View">
+                    <MenuItem Header="_Multiple Task Window"/>
+                    <MenuItem Header="_Edit Task Window"/>
+                    <MenuItem Header="_Group Window"/>
                 </MenuItem>
-                <MenuItem Header="_Help">
-
+                <MenuItem Name="Help" 
+                          Header="_Help">
+                    <MenuItem Header="_Documentation"/>
+                    <MenuItem Header="_Helpful Links"/>
+                    <MenuItem Header="_Version Information"/>
                 </MenuItem>
             </Menu>
             <Separator Margin="0,0,0,10"/>
         </DockPanel>
 
-        <TabControl HorizontalAlignment="Center" 
+        <TabControl Name="Tabs" 
+                    HorizontalAlignment="Center" 
                     Margin="10,30,10,-34" 
                     VerticalAlignment="Center" 
                     Height="508" 
                     Width="526">
-            <TabItem Header="DashBoard" 
+            <TabItem Name="Dashboard" 
+                     Header="DashBoard"
                      Opacity="0.6"
                      Background="AliceBlue">
                 <StackPanel Orientation="Vertical">
                     <StackPanel Orientation="Horizontal" 
                                 Height="232">
-                        <GroupBox Header="General Task Information" 
+                        <GroupBox Header="General Task Information"
                                   HorizontalAlignment="Center" 
                                   Height="190" 
                                   Margin="20,20,0,-199" 
@@ -68,7 +79,8 @@
                                            HorizontalAlignment="Left" 
                                            Margin="10,10,0,0" 
                                            VerticalAlignment="Top"/>
-                                    <TextBox Width="133" 
+                                    <TextBox Name="DailyTaskTB" 
+                                             Width="133" 
                                              Height="20" 
                                              HorizontalAlignment="Right" 
                                              Margin="18,0,0,0" 
@@ -82,7 +94,7 @@
                                            HorizontalAlignment="Left" 
                                            Margin="10,10,0,0" 
                                            VerticalAlignment="Top"/>
-                                    <TextBox Width="133" 
+                                    <TextBox Name="MonthlyTaskTB"  Width="133" 
                                              Height="20" 
                                              HorizontalAlignment="Right" 
                                              Text="0"
@@ -91,27 +103,30 @@
                                              Opacity="0.6">
                                     </TextBox>
                                 </StackPanel>
-                                <StackPanel Orientation="Horizontal">
+                                <StackPanel Name="TotalTask"
+                                            Orientation="Horizontal"
+                                            DataContext="{Binding}">
                                     <Label Content="Total" 
                                            HorizontalAlignment="Left" 
                                            Margin="10,10,0,0" 
                                            VerticalAlignment="Top"/>
-                                    <TextBox Width="133" 
+                                    <TextBox x:Name="TotalTaskTB"
+                                             Text="{Binding Count}"
+                                             Width="133" 
                                              Height="20" 
                                              HorizontalAlignment="Right" 
                                              Margin="19,0,0,0" 
-                                             Text="0"
                                              IsReadOnly="True"
                                              Background="LightGray" 
-                                             Opacity="0.6">
-                                    </TextBox>
+                                             Opacity="0.6"/>
                                 </StackPanel>
                                 <Separator Margin="0,10,0,5"/>
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="Time:" 
                                            Margin="35,10,0,0" 
                                            FontStyle="Italic"/>
-                                    <TextBox Width="100"
+                                    <TextBox Name="currentTime"
+                                             Width="100"
                                              Height="20"
                                              HorizontalAlignment="Right"
                                              Margin="5,10,0,0"
@@ -137,6 +152,7 @@
                                   Grid.ColumnSpan="2" 
                                   Height="189">
                             <DataGrid Name="TaskList"
+                                      ItemsSource="{Binding}"
                                       Width="465"
                                       Background="White"
                                       AlternationCount="2"
@@ -144,17 +160,20 @@
                                       AutoGenerateColumns="False"
                                       IsReadOnly="True">
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header="Task No" 
+                                    <DataGridTextColumn Header="TaskNo" 
                                                         Width="*"
                                                         Binding="{Binding TaskNo}"/>
-                                    <DataGridTextColumn Header="Due Date" 
-                                                        Width="*"
-                                                        Binding="{Binding EndDate}"/>
+                                    <DataGridTextColumn Header="Start" 
+                                                        Width="2*"
+                                                        Binding="{Binding StartDate, StringFormat=d}"/>
+                                    <DataGridTextColumn Header="End" 
+                                                        Width="2*"
+                                                        Binding="{Binding EndDate, StringFormat=d}"/>
                                     <DataGridTextColumn Header="Name" 
-                                                        Width="*"
+                                                        Width="2*"
                                                         Binding="{Binding Name}"/>
                                     <DataGridTextColumn Header="Description" 
-                                                        Width="3*"
+                                                        Width="4*"
                                                         Binding="{Binding Description}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
@@ -163,10 +182,11 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Group"/>
-                        <ComboBox Width="122"
-                                  Height="20">
-                            <ComboBoxItem Content="Test"/>
-                        </ComboBox>
+                        <ComboBox Name="GroupSelectionCB"
+                                  ItemsSource="{Binding TaskData, Mode=OneWay}"
+                                  SelectedItem="{Binding Group, Mode=OneWay}"
+                                  Width="122"
+                                  Height="20"/>
                         <Button x:Name="createTaskBtn"
                                 Content="Create Task"
                                 Width="80"
