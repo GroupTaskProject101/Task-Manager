@@ -6,6 +6,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -14,14 +15,16 @@ using System.Threading.Tasks;
 
 namespace Personal_Task_Manager.Data
 {
-    public class GroupData
+    public class GroupData : INotifyPropertyChanged
     {
         #region Fields
         private string name;
         private Guid groupGuid;
         private int taskCount;
-
+        public static ObservableCollection<GroupData> aGroupCollection = new ObservableCollection<GroupData>();
         #endregion
+
+
 
 
         #region Properties
@@ -65,6 +68,14 @@ namespace Personal_Task_Manager.Data
         }
         #endregion
 
+
+        #region Constructors
+        public GroupData()
+        {
+            groupGuid = Guid.NewGuid();
+        }
+        
+        #endregion
 
         #region Events
         public event PropertyChangedEventHandler PropertyChanged;

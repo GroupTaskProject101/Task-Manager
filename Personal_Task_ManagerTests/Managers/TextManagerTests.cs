@@ -13,18 +13,18 @@ namespace Personal_Task_Manager.Managers.Tests
     public class TextManagerTests
     {
         [TestMethod()]
-        public void ParseFileTest()
+        public void ParseFile_ReadInName_AddsValueToCollection()
         {
             TextManager manager = new TextManager();
+
             manager.ParseFile();
-            foreach (TaskData next in manager.TaskCollection)
-            {
-                Console.WriteLine(next.Name);
-                Console.WriteLine(next.Group);
-                Console.WriteLine(next.EndTime);
-                Console.WriteLine(next.StartTime);
-                Console.WriteLine(next.Description);
-            }
+
+            string expectedName = "Reading";
+            string actualName = TaskData.aTaskCollection[0].Name;
+
+            Assert.AreEqual(expectedName, actualName);
         }
+
+        
     }
 }

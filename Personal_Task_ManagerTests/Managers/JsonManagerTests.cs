@@ -12,17 +12,6 @@ namespace Personal_Task_Manager.Managers.Tests
     [TestClass()]
     public class JsonManagerTests
     {
-        [TestMethod()]
-        public void ParseFileTest()
-        {
-            JsonManager manager = new JsonManager();
-            manager.ParseFile();
-            foreach (TaskData next in manager.TaskCollection)
-            {
-                Console.WriteLine(next.Name);
-                Console.WriteLine(next.Group);
-                Console.WriteLine(next.Description);
-            }
-        }
+        
     }
 }

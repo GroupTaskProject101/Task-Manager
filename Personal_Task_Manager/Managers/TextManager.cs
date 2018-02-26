@@ -49,15 +49,18 @@ namespace Personal_Task_Manager.Managers
                 {
                     string[] tempItems = item.Split(',');
                     TaskData aTaskData = new TaskData();
+                    GroupData aGroupData = new GroupData();
 
                     aTaskData.TaskNo = TaskData.Count++;
                     aTaskData.StartDate = DateTime.Parse(tempItems[0]);
                     aTaskData.EndDate = DateTime.Parse(tempItems[1]);
                     aTaskData.Name = tempItems[2];
                     aTaskData.Description = tempItems[3];
-                    aTaskData.Group = tempItems[4];
+                    aGroupData.Name = tempItems[4];
+                    aGroupData.TaskCount++;
 
                     TaskData.aTaskCollection.Add(aTaskData);
+                    GroupData.aGroupCollection.Add(aGroupData);
                 }
             }
             reader.Close();

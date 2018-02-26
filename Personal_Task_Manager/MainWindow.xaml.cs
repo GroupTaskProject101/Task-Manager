@@ -23,7 +23,6 @@ namespace Personal_Task_Manager
 
             DataContext = aTaskData;
             TaskList.DataContext = TaskData.GetTaskData();
-            GroupSelectionCB.ItemsSource = TaskData.aTaskGroup;
         }
 
         private void InitializeTimingLoop()
@@ -57,15 +56,69 @@ namespace Personal_Task_Manager
             createGroupWindow.ShowDialog();
         }
 
-        private void MenuItem_Click(object sender, RoutedEventArgs e)
-        {
-            Environment.Exit(0);
-        }
-
         void timer_Tick(object sender, EventArgs e)
         {
             //TotalTaskTB.Text = TaskData.count.ToString();
           
+        }
+
+        //**********************File Menu**********************
+        private void MenuOpen_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuSave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuExit_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
+
+        //**********************Help Menu**********************
+        private void MenuVersionInformation_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuHelpfulLinks_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuDocumentation_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //**********************View Menu**********************
+        private void MenuMultipletaskWindow_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuEditTaskWindow_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuGroupWindow_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        //**********************Edit Menu**********************
+        private void MenuEdit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuDelete_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

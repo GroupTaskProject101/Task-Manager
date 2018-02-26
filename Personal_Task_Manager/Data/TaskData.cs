@@ -23,13 +23,14 @@ namespace Personal_Task_Manager.Data
         private int taskNo;
         private string name;
         private string description;
-        private string group;
+        //private string group;
         private DateTime startDate;
         private DateTime endDate;
         private Guid taskGuid;
-        // TODO Finish setting up task completion system to keep track of finished tasks
-        public static ObservableCollection<string> aTaskGroup = new ObservableCollection<string>();
+        private bool completed;
+        public static ObservableCollection<TaskData> aCompletedTaskGroup = new ObservableCollection<TaskData>();
         public static ObservableCollection<TaskData> aTaskCollection = new ObservableCollection<TaskData>();
+        public GroupData aGroupData = new GroupData();
         #endregion
 
 
@@ -60,19 +61,20 @@ namespace Personal_Task_Manager.Data
             }
         }
 
-        public string Group
-        {
-            get
-            {
-                return group;
-            }
-            set
-            {
-                group = value;
-                aTaskGroup.Add(value);
-                OnPropertyChanged();
-            }
-        }
+        //public string Group
+        //{
+        //    get
+        //    {
+        //        return group;
+        //    }
+        //    set
+        //    {
+        //        group = value;
+        //        //Add Group to GroupData Collection
+        //        aGroupData.Name = value;
+        //        OnPropertyChanged();
+        //    }
+        //}
 
         public DateTime StartDate
         {
@@ -126,6 +128,19 @@ namespace Personal_Task_Manager.Data
             }
         }
 
+        public bool Completed
+        {
+            get
+            {
+                return completed;
+            }
+            set
+            {
+                completed = value;
+                OnPropertyChanged();
+            }
+        }
+
         public static int Count
         {
             get
@@ -148,13 +163,10 @@ namespace Personal_Task_Manager.Data
         public static ObservableCollection<TaskData> GetTaskData()
         {
             TextManager aTextManager = new TextManager();
-
+            //TODO Add logic to actually determine if there is a savefile path.
             aTextManager.ParseFile();
 
             return aTaskCollection;
-
-
-
 
 
 
@@ -164,90 +176,6 @@ namespace Personal_Task_Manager.Data
             //{
             //    TaskNo = 0,
             //    Name = "Test0",
-            //    Description = "Take 30 minute practice test for English101",
-            //    Group = "English 101",
-            //    StartTime = "6:00 PM",
-            //    EndTime = "11:30 PM",
-            //    CurrentTime = DateTime.Now,
-            //    EndDate = DateTime.Today.ToShortDateString(),
-            //    TaskGUID = Guid.NewGuid(),
-            //});
-            //aTaskData.Add(new TaskData()
-            //{
-            //    TaskNo = 1,
-            //    Name = "Test1",
-            //    Description = "Take 30 minute practice test for English101",
-            //    Group = "English 101",
-            //    StartTime = "6:00 PM",
-            //    EndTime = "11:30 PM",
-            //    CurrentTime = DateTime.Now,
-            //    EndDate = DateTime.Today.ToShortDateString(),
-            //    TaskGUID = Guid.NewGuid(),
-            //});
-            //aTaskData.Add(new TaskData()
-            //{
-            //    TaskNo = 2,
-            //    Name = "Test2",
-            //    Description = "Take 30 minute practice test for English101",
-            //    Group = "English 101",
-            //    StartTime = "6:00 PM",
-            //    EndTime = "11:30 PM",
-            //    CurrentTime = DateTime.Now,
-            //    EndDate = DateTime.Today.ToShortDateString(),
-            //    TaskGUID = Guid.NewGuid(),
-            //});
-            //aTaskData.Add(new TaskData()
-            //{
-            //    TaskNo = 3,
-            //    Name = "Test3",
-            //    Description = "Take 30 minute practice test for English101",
-            //    Group = "English 101",
-            //    StartTime = "6:00 PM",
-            //    EndTime = "11:30 PM",
-            //    CurrentTime = DateTime.Now,
-            //    EndDate = DateTime.Today.ToShortDateString(),
-            //    TaskGUID = Guid.NewGuid(),
-            //});
-            //aTaskData.Add(new TaskData()
-            //{
-            //    TaskNo = 4,
-            //    Name = "Test4",
-            //    Description = "Take 30 minute practice test for English101",
-            //    Group = "English 101",
-            //    StartTime = "6:00 PM",
-            //    EndTime = "11:30 PM",
-            //    CurrentTime = DateTime.Now,
-            //    EndDate = DateTime.Today.ToShortDateString(),
-            //    TaskGUID = Guid.NewGuid(),
-            //});
-            //aTaskData.Add(new TaskData()
-            //{
-            //    TaskNo = 5,
-            //    Name = "Test5",
-            //    Description = "Take 30 minute practice test for English101",
-            //    Group = "English 101",
-            //    StartTime = "6:00 PM",
-            //    EndTime = "11:30 PM",
-            //    CurrentTime = DateTime.Now,
-            //    EndDate = DateTime.Today.ToShortDateString(),
-            //    TaskGUID = Guid.NewGuid(),
-            //});
-            //aTaskData.Add(new TaskData()
-            //{
-            //    TaskNo = 6,
-            //    Name = "Test6",
-            //    Description = "Take 30 minute practice test for English101",
-            //    Group = "English 101",
-            //    StartTime = "6:00 PM",
-            //    EndTime = "11:30 PM",
-            //    CurrentTime = DateTime.Now,
-            //    EndDate = DateTime.Today.ToShortDateString(),
-            //    TaskGUID = Guid.NewGuid(),
-            //});
-            //aTaskData.Add(new TaskData()
-            //{
-            //    TaskNo = 7,
-            //    Name = "Test7",
             //    Description = "Take 30 minute practice test for English101",
             //    Group = "English 101",
             //    StartTime = "6:00 PM",

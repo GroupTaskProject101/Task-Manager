@@ -26,28 +26,49 @@
                   Background="White">
                 <MenuItem Name="FileMenu" 
                           Header="_File">
-                    <MenuItem Header="_Open"/>
-                    <MenuItem Header="_Save"/>
+                    <MenuItem Name="Open"
+                              Header="_Open"
+                              Click="MenuOpen_Click"/>
+                    <MenuItem Name="Save"
+                              Header="_Save"
+                              Click="MenuSave_Click"/>
                     <Separator/>
-                    <MenuItem Header="_Exit" 
-                              Click="MenuItem_Click"/>
+                    <MenuItem Name="Exit"
+                              Header="_Exit"
+                              Click="MenuExit_Click"/>
                 </MenuItem>
                 <MenuItem Name="EditMenu" 
                           Header="_Edit">
-                    <MenuItem Header="_Edit Task"/>
-                    <MenuItem Header="_Delete"/>
+                    <MenuItem Name="EditTask" 
+                              Header="_Edit Task"
+                              Click="MenuEdit_Click"/>
+                    <MenuItem Name="Delete" 
+                              Header="_Delete"
+                              Click="MenuDelete_Click"/>
                 </MenuItem>
                 <MenuItem Name="View" 
                           Header="_View">
-                    <MenuItem Header="_Multiple Task Window"/>
-                    <MenuItem Header="_Edit Task Window"/>
-                    <MenuItem Header="_Group Window"/>
+                    <MenuItem Name="MultipletaskWindow" 
+                              Header="_Multiple Task Window"
+                              Click="MenuMultipletaskWindow_Click"/>
+                    <MenuItem Name="EditTaskWindow" 
+                              Header="_Edit Task Window"
+                              Click="MenuEditTaskWindow_Click"/>
+                    <MenuItem Name="GroupWindow" 
+                              Header="_Group Window"
+                              Click="MenuGroupWindow_Click"/>
                 </MenuItem>
                 <MenuItem Name="Help" 
                           Header="_Help">
-                    <MenuItem Header="_Documentation"/>
-                    <MenuItem Header="_Helpful Links"/>
-                    <MenuItem Header="_Version Information"/>
+                    <MenuItem Name="Documentation" 
+                              Header="_Documentation"
+                              Click="MenuDocumentation_Click"/>
+                    <MenuItem Name="HelpfulLinks" 
+                              Header="_Helpful Links"
+                              Click="MenuHelpfulLinks_Click"/>
+                    <MenuItem Name="VersionInformation" 
+                              Header="_Version Information"
+                              Click="MenuVersionInformation_Click"/>
                 </MenuItem>
             </Menu>
             <Separator Margin="0,0,0,10"/>
@@ -77,7 +98,7 @@
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="Daily" 
                                            HorizontalAlignment="Left" 
-                                           Margin="10,10,0,0" 
+                                           Margin="0,10,0,0" 
                                            VerticalAlignment="Top"/>
                                     <TextBox Name="DailyTaskTB" 
                                              Width="133" 
@@ -92,9 +113,10 @@
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="Monthly" 
                                            HorizontalAlignment="Left" 
-                                           Margin="10,10,0,0" 
+                                           Margin="0,10,0,0" 
                                            VerticalAlignment="Top"/>
-                                    <TextBox Name="MonthlyTaskTB"  Width="133" 
+                                    <TextBox Name="MonthlyTaskTB"  
+                                             Width="133" 
                                              Height="20" 
                                              HorizontalAlignment="Right" 
                                              Text="0"
@@ -108,7 +130,7 @@
                                             DataContext="{Binding}">
                                     <Label Content="Total" 
                                            HorizontalAlignment="Left" 
-                                           Margin="10,10,0,0" 
+                                           Margin="0,10,0,0" 
                                            VerticalAlignment="Top"/>
                                     <TextBox x:Name="TotalTaskTB"
                                              Text="{Binding Count}"
@@ -123,7 +145,7 @@
                                 <Separator Margin="0,10,0,5"/>
                                 <StackPanel Orientation="Horizontal">
                                     <Label Content="Time:" 
-                                           Margin="35,10,0,0" 
+                                           Margin="30,10,0,0" 
                                            FontStyle="Italic"/>
                                     <TextBox Name="currentTime"
                                              Width="100"
@@ -180,18 +202,12 @@
 
                         </GroupBox>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal">
-                        <Label Content="Group"/>
-                        <ComboBox Name="GroupSelectionCB"
-                                  ItemsSource="{Binding TaskData, Mode=OneWay}"
-                                  SelectedItem="{Binding Group, Mode=OneWay}"
-                                  Width="122"
-                                  Height="20"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,35,0">
                         <Button x:Name="createTaskBtn"
                                 Content="Create Task"
                                 Width="80"
                                 Height="20"
-                                Margin="150,0,0,0" 
+                                Margin="0,0,0,0" 
                                 Click="createTaskBtn_Click" 
                                 HorizontalAlignment="Right" 
                                 VerticalAlignment="Center"/>
@@ -207,7 +223,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <Label Content="Progress"/>
-                        <ProgressBar Width="439"
+                        <ProgressBar Width="430"
                                      Height="10"
                                      Margin="0,0,0,0" 
                                      AutomationProperties.HelpText="Progress"/>

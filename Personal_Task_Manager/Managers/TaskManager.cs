@@ -13,6 +13,7 @@ namespace Personal_Task_Manager.Managers
     {
         #region Fields/Properties
         TaskData aTaskData = new TaskData();
+        GroupData aGroupData = new GroupData();
         #endregion
 
 
@@ -62,7 +63,7 @@ namespace Personal_Task_Manager.Managers
         /// Sets the group that the tasks will fall under
         /// </summary>
         /// <param name="aGroup"></param>
-        public void SetGroup(string aGroup) => aTaskData.Group = aGroup;
+        public void SetGroup(string aGroup) => aGroupData.Name = aGroup;
         #endregion
 
 
@@ -77,7 +78,7 @@ namespace Personal_Task_Manager.Managers
         /// Returns the group that the tasks will fall under
         /// </summary>
         /// <returns>string</returns>
-        public string GetGroup() => aTaskData.Group;
+        public string GetGroup() => aGroupData.Name;
 
         /// <summary>
         /// Returns the description of the task
