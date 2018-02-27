@@ -7,10 +7,7 @@
 using Personal_Task_Manager.Data;
 using Personal_Task_Manager.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
 namespace Personal_Task_Manager.Managers
 {
@@ -38,9 +35,30 @@ namespace Personal_Task_Manager.Managers
         /// Saves all tasks inside the task collection to the specified output file
         /// </summary>
         /// <param name="aFilePath"></param>
-        public void Save(string aFilePath)
+        public static void Save(string aFilePath)
         {
-            // TODO Implement save file logic
+            string fileName = "LastSaveInformation.txt";
+            string path = Path.Combine(@"../../Resources/", fileName);
+
+            try
+            {
+                if (aFilePath != null && aFilePath != "")
+                {
+                    StreamWriter writer = new StreamWriter(path, false);
+
+                    if (FileData.SaveFileLocation != null && FileData.SaveFileLocation != "")
+                    {
+                        writer.WriteLine(FileData.SaveFileLocation);
+                    }
+                    
+                    writer.Close();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+            }
+            
         }
 
         /// <summary>
@@ -50,6 +68,35 @@ namespace Personal_Task_Manager.Managers
         public void Load(string aFilePath)
         {
             // TODO Implement load file logic
+        }
+
+        /// <summary>
+        /// Loads the last save location and values
+        /// </summary>
+        public static string LoadLastSave()
+        {
+            string line = "";
+            string fileName = "LastSaveInformation.txt";
+
+            try
+            {
+                StreamReader reader = new StreamReader(@"../../Resources/" + fileName);
+
+                line = reader.ReadLine();
+
+                if (line != null || line != "")
+                {
+                    FileData.LastSaveLocation = line;
+                }
+
+                reader.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+            }
+
+            return line;
         }
 
         /// <summary>

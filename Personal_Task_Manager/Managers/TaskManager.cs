@@ -30,12 +30,6 @@ namespace Personal_Task_Manager.Managers
         public void SetName(string aName) => aTaskData.Name = aName;
 
         /// <summary>
-        /// Sets the current time
-        /// </summary>
-        /// <param name="aTime"></param>
-        //public void SetCurrentTime(DateTime aTime) => aTaskData.CurrentTime = aTime;
-
-        /// <summary>
         /// Sets the starting time to be used by the task
         /// </summary>
         /// <param name="aTime"></param>
@@ -46,12 +40,6 @@ namespace Personal_Task_Manager.Managers
         /// </summary>
         /// <param name="aTime"></param>
         public void SetEndDate(DateTime aTime) => aTaskData.EndDate = aTime;
-
-        /// <summary>
-        /// Sets the ending date to be used by the task
-        /// </summary>
-        /// <param name="aDate"></param>
-        //public void SetEndDate(string aDate) => aTaskData.EndDate = aDate;
 
         /// <summary>
         /// Sets the description of the task
@@ -87,12 +75,6 @@ namespace Personal_Task_Manager.Managers
         public string GetDescription() => aTaskData.Description;
 
         /// <summary>
-        /// Returns the current time
-        /// </summary>
-        /// <returns>DateTime</returns>
-        //public DateTime GetCurrentTime() => aTaskData.CurrentTime;
-
-        /// <summary>
         /// Returns the starting time of the task
         /// </summary>
         /// <returns>DateTime</returns>
@@ -103,12 +85,6 @@ namespace Personal_Task_Manager.Managers
         /// </summary>
         /// <returns>DateTime</returns>
         public DateTime GetEndTime() => aTaskData.EndDate;
-
-        /// <summary>
-        /// Returns the ending date of the task
-        /// </summary>
-        /// <returns>DateTime</returns>
-        //public string GetEndDate() => aTaskData.EndDate;
         #endregion
 
 

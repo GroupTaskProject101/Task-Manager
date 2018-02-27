@@ -23,8 +23,6 @@ namespace Personal_Task_Manager.Managers.Tests
             string actualName = TaskData.aTaskCollection[0].Name;
 
             Assert.AreEqual(expectedName, actualName);
-        }
-
-        
+        }    
     }
 }

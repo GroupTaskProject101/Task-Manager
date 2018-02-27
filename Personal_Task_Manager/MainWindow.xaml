@@ -11,7 +11,7 @@
         Foreground="Black" 
         MinHeight="320"
         MinWidth="530" 
-        ResizeMode="NoResize">
+        ResizeMode="NoResize" Loaded="Window_Loaded" Closed="Window_Closed">
 
     <Grid Margin="0,0,-6,-1"
           Height="504" 
@@ -183,23 +183,22 @@
                                       IsReadOnly="True">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="TaskNo" 
-                                                        Width="*"
+                                                        Width="Auto"
                                                         Binding="{Binding TaskNo}"/>
-                                    <DataGridTextColumn Header="Start" 
-                                                        Width="2*"
-                                                        Binding="{Binding StartDate, StringFormat=d}"/>
-                                    <DataGridTextColumn Header="End" 
-                                                        Width="2*"
-                                                        Binding="{Binding EndDate, StringFormat=d}"/>
                                     <DataGridTextColumn Header="Name" 
-                                                        Width="2*"
+                                                        Width="Auto"
                                                         Binding="{Binding Name}"/>
+                                    <DataGridTextColumn Header="Group" 
+                                                        Width="Auto"
+                                                        Binding="{Binding Group}"/>
+                                    <DataGridTextColumn Header="Due" 
+                                                        Width="Auto"
+                                                        Binding="{Binding EndDate, StringFormat='d/M HH:MM tt'}"/>
                                     <DataGridTextColumn Header="Description" 
-                                                        Width="4*"
+                                                        Width="Auto"
                                                         Binding="{Binding Description}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
-
                         </GroupBox>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,35,0">
@@ -221,13 +220,19 @@
                                 HorizontalAlignment="Right" 
                                 VerticalAlignment="Center"/>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal">
+                    <StackPanel Name="ProgressSP" 
+                                Orientation="Horizontal"
+                                DataContext="{Binding}">
                         <Label Content="Progress"/>
-                        <ProgressBar Width="430"
+                        <ProgressBar Name="ProgressBar" 
+                                     Minimum="0"
+                                     Maximum="{Binding}"
+                                     Value="3"
+                                     Width="430"
                                      Height="10"
                                      Margin="0,0,0,0" 
                                      AutomationProperties.HelpText="Progress"/>
-                    </StackPanel>
+                        </StackPanel>
                 </StackPanel>
             </TabItem>
             <TabItem Header="Search" 
@@ -304,15 +309,15 @@
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Path" 
                                    Margin="3,0,0,0"/>
-                            <TextBox 
-                                     Text="Enter Full Save Path" 
+                            <TextBox Name="SavePath"
                                      Opacity="0.6" 
                                      Width="373" 
-                                     Margin="0,4,0,7"/>
-                            <Button Content="Browse"
+                                     Margin="0,4,0,7" TextChanged="TextBox_TextChanged"/>
+                            <Button Name="Browse" 
+                                    Content="Browse"
                                     Width="50"
                                     Height="20" 
-                                    Margin="5,4,0,8"/>
+                                    Margin="5,4,0,8" Click="Browse_Click"/>
                         </StackPanel>
                     </GroupBox>
                     <Separator Margin="0,10,0,20"/>
@@ -323,13 +328,16 @@
                             <StackPanel Orientation="Horizontal">
                                 <Label Content="JSON"/>
                                 <RadioButton HorizontalAlignment="Center" 
-                                             VerticalAlignment="Center"/>
+                                             VerticalAlignment="Center" 
+                                             Checked="RadioButton_Checked_2"/>
                                 <Label Content="CSV"/>
                                 <RadioButton HorizontalAlignment="Center" 
-                                             VerticalAlignment="Center"/>
+                                             VerticalAlignment="Center" 
+                                             Checked="RadioButton_Checked_1"/>
                                 <Label Content="Text"/>
                                 <RadioButton HorizontalAlignment="Center" 
-                                             VerticalAlignment="Center"/>
+                                             VerticalAlignment="Center" 
+                                             Checked="RadioButton_Checked"/>
 
                             </StackPanel>
                         </GroupBox>
@@ -368,7 +376,6 @@
                     <Grid>
                         <GroupBox Header="Additional Settings">
                             <StackPanel Orientation="Horizontal">
-
                             </StackPanel>
                         </GroupBox>
                     </Grid>

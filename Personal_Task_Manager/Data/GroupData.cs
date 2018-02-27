@@ -5,13 +5,9 @@
 // Date: 2/10/2018
 
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Personal_Task_Manager.Data
 {
@@ -23,8 +19,6 @@ namespace Personal_Task_Manager.Data
         private int taskCount;
         public static ObservableCollection<GroupData> aGroupCollection = new ObservableCollection<GroupData>();
         #endregion
-
-
 
 
         #region Properties
@@ -73,9 +67,9 @@ namespace Personal_Task_Manager.Data
         public GroupData()
         {
             groupGuid = Guid.NewGuid();
-        }
-        
+        }  
         #endregion
+
 
         #region Events
         public event PropertyChangedEventHandler PropertyChanged;

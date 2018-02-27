@@ -6,13 +6,9 @@
 
 using Personal_Task_Manager.Managers;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Personal_Task_Manager.Data
 {
@@ -23,7 +19,7 @@ namespace Personal_Task_Manager.Data
         private int taskNo;
         private string name;
         private string description;
-        //private string group;
+        private string group;
         private DateTime startDate;
         private DateTime endDate;
         private Guid taskGuid;
@@ -61,20 +57,18 @@ namespace Personal_Task_Manager.Data
             }
         }
 
-        //public string Group
-        //{
-        //    get
-        //    {
-        //        return group;
-        //    }
-        //    set
-        //    {
-        //        group = value;
-        //        //Add Group to GroupData Collection
-        //        aGroupData.Name = value;
-        //        OnPropertyChanged();
-        //    }
-        //}
+        public string Group
+        {
+            get
+            {
+                return group;
+            }
+            set
+            {
+                group = value;
+                OnPropertyChanged();
+            }
+        }
 
         public DateTime StartDate
         {
@@ -167,24 +161,6 @@ namespace Personal_Task_Manager.Data
             aTextManager.ParseFile();
 
             return aTaskCollection;
-
-
-
-            //var aTaskData = new ObservableCollection<TaskData>();
-            
-            //aTaskData.Add(new TaskData()
-            //{
-            //    TaskNo = 0,
-            //    Name = "Test0",
-            //    Description = "Take 30 minute practice test for English101",
-            //    Group = "English 101",
-            //    StartTime = "6:00 PM",
-            //    EndTime = "11:30 PM",
-            //    CurrentTime = DateTime.Now,
-            //    EndDate = DateTime.Today.ToShortDateString(),
-            //    TaskGUID = Guid.NewGuid(),
-            //});
-            //return aTaskData;
         }
         #endregion
 

@@ -38,43 +38,41 @@ namespace Personal_Task_Manager.Managers
         /// </summary>
         public override void ParseFile()
         {
-            StreamReader reader = File.OpenText("C:/Users/Zac/Desktop/testFile.txt");
-            string line;
-
-            while ((line = reader.ReadLine()) != null)
+            try
             {
-                string[] items = line.Split('$').Select(p => p.Trim()).Where(p => !string.IsNullOrWhiteSpace(p)).ToArray();
-                
-                foreach (string item in items)
+                string fileName = FileManager.LoadLastSave();
+
+                StreamReader reader = File.OpenText(fileName);
+                string line = "";
+
+                while ((line = reader.ReadLine()) != null)
                 {
-                    string[] tempItems = item.Split(',');
-                    TaskData aTaskData = new TaskData();
-                    GroupData aGroupData = new GroupData();
+                    string[] items = line.Split('$').Select(p => p.Trim()).Where(p => !string.IsNullOrWhiteSpace(p)).ToArray();
 
-                    aTaskData.TaskNo = TaskData.Count++;
-                    aTaskData.StartDate = DateTime.Parse(tempItems[0]);
-                    aTaskData.EndDate = DateTime.Parse(tempItems[1]);
-                    aTaskData.Name = tempItems[2];
-                    aTaskData.Description = tempItems[3];
-                    aGroupData.Name = tempItems[4];
-                    aGroupData.TaskCount++;
+                    foreach (string item in items)
+                    {
+                        string[] tempItems = item.Split(',');
+                        TaskData aTaskData = new TaskData();
+                        GroupData aGroupData = new GroupData();
 
-                    TaskData.aTaskCollection.Add(aTaskData);
-                    GroupData.aGroupCollection.Add(aGroupData);
+                        aTaskData.TaskNo = TaskData.Count++;
+                        aTaskData.StartDate = DateTime.Parse(tempItems[0]);
+                        aTaskData.EndDate = DateTime.Parse(tempItems[1]);
+                        aTaskData.Name = tempItems[2];
+                        aTaskData.Description = tempItems[3];
+                        aTaskData.Group = aGroupData.Name = tempItems[4];
+                        aGroupData.TaskCount++;
+
+                        TaskData.aTaskCollection.Add(aTaskData);
+                        GroupData.aGroupCollection.Add(aGroupData);
+                    }
                 }
+                reader.Close();
             }
-            reader.Close();
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+            }
         }
     }
 }
-
-
-//    TaskNo = 0,
-//    Name = "Test0",
-//    Description = "Take 30 minute practice test for English101",
-//    Group = "English 101",
-//    StartTime = "6:00 PM",
-//    EndTime = "11:30 PM",
-//    CurrentTime = DateTime.Now,
-//    EndDate = DateTime.Today.ToShortDateString(),
-//    TaskGUID = Guid.NewGuid(),
