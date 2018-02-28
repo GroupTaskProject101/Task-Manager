@@ -1,0 +1,6 @@
+12:00,1:00,Reading,Operating Systems book, School $
+11:00,2:00,Lifting,Working on my gains,exercise $
+4:00,7:00,Work,Got to make money,weekly issues $
+2:00,1:30,Car Repair,Change oil, Car $
+10:00,8:00,App Demo,Complete application for work,Work $
+5:00,5:00,Vacuum,Dirty floor sucks,Cleaning $

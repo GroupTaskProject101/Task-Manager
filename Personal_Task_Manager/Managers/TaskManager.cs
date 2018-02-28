@@ -118,9 +118,9 @@ namespace Personal_Task_Manager.Managers
         /// Searches for the specified task name in the task collection
         /// </summary>
         /// <param name="aName"></param>
-        public void SearchTasks(string aName)
+        public void SearchTasks(string aName, string aCategory)
         {
-            // TODO Implement the searching algorithm
+            
         }
 
         /// <summary>

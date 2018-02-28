@@ -14,20 +14,20 @@ namespace Personal_Task_Manager
     /// </summary>
     public partial class MainWindow : Window
     {
+        public TaskManager aTaskManager = new TaskManager();
+        public TextManager aTextManager = new TextManager();
+        public JsonManager aJsonManager = new JsonManager();
+        public CSVManager aCSVManager = new CSVManager();
+        public GroupManager aGroupManager = new GroupManager();
+        
+        public FileData aFileData = new FileData();
+        public TaskData aTaskData = new TaskData();
+
         public MainWindow()
         {
             InitializeComponent();
             InitializeClock();
             InitializeTimingLoop();
-
-            TaskManager aTaskManager = new TaskManager();
-            TextManager aTextManager = new TextManager();
-            JsonManager aJsonManager = new JsonManager();
-            CSVManager aCSVManager = new CSVManager();
-            GroupManager aGroupManager = new GroupManager();
-
-            FileData fileData = new FileData();
-            TaskData aTaskData = new TaskData();
 
             DataContext = aTaskData;
             TaskList.DataContext = TaskData.GetTaskData();
@@ -146,22 +146,7 @@ namespace Personal_Task_Manager
             {
                 SavePath.Text = FileData.LastSaveLocation;
             }
-        }
-
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void RadioButton_Checked_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void RadioButton_Checked_2(object sender, RoutedEventArgs e)
-        {
-
-        }
+        }     
 
         private void Window_Closed(object sender, EventArgs e)
         {
@@ -190,6 +175,69 @@ namespace Personal_Task_Manager
             {
                 SavePath.Text = temp;
             }
+        }
+
+        private void JsonRB_Checked(object sender, RoutedEventArgs e)
+        {
+            FileData.FileFormat = "Json";
+        }
+
+        private void CSVRB_Checked(object sender, RoutedEventArgs e)
+        {
+            FileData.FileFormat = "CSV";
+        }
+
+        private void TextRB_Checked(object sender, RoutedEventArgs e)
+        {
+            FileData.FileFormat = "Text";
+        }
+
+        private void NotificationOn_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void NotificationOff_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void GroupDeletionEnabled_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void GroupDeletionDisabled_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SearchElement_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+            setButtonVisibility();
+        }
+
+        private void SearchBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (SearchElement.Text != String.Empty)
+            {
+                aTaskManager.SearchTasks(SearchElement.Text, CategoryCB.Text);
+            }       
+        }
+
+        private void setButtonVisibility()
+        {
+            if (SearchElement.IsInitialized)
+            {
+                if (SearchElement.Text != String.Empty)
+                {
+                    SearchBtn.IsEnabled = true;
+                }
+                else
+                {
+                    SearchBtn.IsEnabled = false;
+                }
+            }          
         }
     }
 }
