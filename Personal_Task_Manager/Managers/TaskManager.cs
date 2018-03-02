@@ -7,7 +7,6 @@
 using Personal_Task_Manager.Data;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
 
 namespace Personal_Task_Manager.Managers
@@ -17,7 +16,6 @@ namespace Personal_Task_Manager.Managers
         #region Fields/Properties
         TaskData aTaskData = new TaskData();
         GroupData aGroupData = new GroupData();
-
         #endregion
 
 

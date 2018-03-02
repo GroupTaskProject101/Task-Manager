@@ -201,7 +201,9 @@
                             </DataGrid>
                         </GroupBox>
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,35,0">
+                    <StackPanel Orientation="Horizontal" 
+                                HorizontalAlignment="Right" 
+                                Margin="0,0,35,0">
                         <Button x:Name="createTaskBtn"
                                 Content="Create Task"
                                 Width="80"
@@ -248,53 +250,41 @@
                             <StackPanel Orientation="Horizontal" 
                                         Width="502">
                                 <Label Content="Search"/>
-                                <TextBox Width="250" 
+                                <TextBox Name="SearchElement" 
+                                         Width="250" 
                                          Text="Enter Search Term" 
                                          HorizontalAlignment="Center" 
                                          VerticalAlignment="Center" 
-                                         Opacity="0.6"/>
+                                         Opacity="0.6" TextChanged="SearchElement_TextChanged"/>
                                 <Separator/>
                                 <Label Content="Category: "/>
-                                <ComboBox Width="138"
+                                <ComboBox Name="CategoryCB"
+                                          Width="138"
                                           Height="20" 
                                           Margin="0,4,0,3">
                                     <ComboBoxItem Content="Name"/>
                                     <ComboBoxItem Content="Description"/>
-                                    <ComboBoxItem Content="Guid"/>
                                     <ComboBoxItem Content="Group"/>
                                     <ComboBoxItem Content="EndDate"/>
-                                    <ComboBoxItem Content="StartTime"/>
                                     <ComboBoxItem Content="All Categories"/>
                                 </ComboBox>
                             </StackPanel>
                         </GroupBox>
                     </StackPanel>
                     <Separator/>
-                    <TreeView Width="500"
-                              Height="380">
-                        <TreeViewItem Header="Test">
-                            <TreeViewItem Header="TestChild1">
-                                <TreeViewItem Header="TestChild1"/>
-                                <TreeViewItem Header="TestChild2"/>
-                                <TreeViewItem Header="TestChild3"/>
-                            </TreeViewItem>
-                            <TreeViewItem Header="TestChild2"/>
-                            <TreeViewItem Header="TestChild3"/>
-                        </TreeViewItem>
-                        <TreeViewItem Header="Test1">
-                            <TreeViewItem Header="TestChild1"/>
-                            <TreeViewItem Header="TestChild2"/>
-                            <TreeViewItem Header="TestChild3"/>
-                        </TreeViewItem>
-                        <TreeViewItem Header="Test2">
-                            <TreeViewItem Header="TestChild1"/>
-                            <TreeViewItem Header="TestChild2"/>
-                            <TreeViewItem Header="TestChild3"/>
-                        </TreeViewItem>
-                    </TreeView>
+                    <DataGrid Name="SearchList"
+                                      ItemsSource="{Binding}"
+                                      Width="465"
+                                      Background="White"
+                                      AlternationCount="2"
+                                      AlternatingRowBackground="AliceBlue"
+                                      AutoGenerateColumns="False"
+                                      IsReadOnly="True">
+                    </DataGrid>
                     <Separator Margin="10,5"/>
-                    <Button Content="Begin Search" 
-                            Margin="10,0"
+                    <Button Name="SearchBtn" 
+                            Content="Begin Search" 
+                            Margin="10,0" Click="SearchBtn_Click" 
                             IsEnabled="False"/>
                 </StackPanel>
             </TabItem>
@@ -312,12 +302,14 @@
                             <TextBox Name="SavePath"
                                      Opacity="0.6" 
                                      Width="373" 
-                                     Margin="0,4,0,7" TextChanged="TextBox_TextChanged"/>
+                                     Margin="0,4,0,7" 
+                                     TextChanged="TextBox_TextChanged"/>
                             <Button Name="Browse" 
                                     Content="Browse"
                                     Width="50"
                                     Height="20" 
-                                    Margin="5,4,0,8" Click="Browse_Click"/>
+                                    Margin="5,4,0,8" 
+                                    Click="Browse_Click"/>
                         </StackPanel>
                     </GroupBox>
                     <Separator Margin="0,10,0,20"/>
@@ -327,18 +319,20 @@
                                   Width="175">
                             <StackPanel Orientation="Horizontal">
                                 <Label Content="JSON"/>
-                                <RadioButton HorizontalAlignment="Center" 
+                                <RadioButton Name="JsonRB" 
+                                             HorizontalAlignment="Center" 
                                              VerticalAlignment="Center" 
-                                             Checked="RadioButton_Checked_2"/>
+                                             Checked="JsonRB_Checked"/>
                                 <Label Content="CSV"/>
-                                <RadioButton HorizontalAlignment="Center" 
+                                <RadioButton Name="CSVRB" 
+                                             HorizontalAlignment="Center" 
                                              VerticalAlignment="Center" 
-                                             Checked="RadioButton_Checked_1"/>
+                                             Checked="CSVRB_Checked"/>
                                 <Label Content="Text"/>
-                                <RadioButton HorizontalAlignment="Center" 
+                                <RadioButton Name="TextRB" 
+                                             HorizontalAlignment="Center" 
                                              VerticalAlignment="Center" 
-                                             Checked="RadioButton_Checked"/>
-
+                                             Checked="TextRB_Checked"/>
                             </StackPanel>
                         </GroupBox>
                         <Separator Margin="10,2,0,2"/>
@@ -349,26 +343,34 @@
                                        VerticalAlignment="Center" 
                                        HorizontalAlignment="Center" 
                                        Margin="0,0,0,1"/>
-                                <RadioButton HorizontalAlignment="Center" 
+                                <RadioButton Name="NotificationOn" 
+                                             HorizontalAlignment="Center" 
                                              VerticalAlignment="Center" 
-                                             Margin="0,6,0,7"/>
+                                             Margin="0,6,0,7" 
+                                             Checked="NotificationOn_Checked"/>
                                 <Label Content="Off" 
                                        HorizontalAlignment="Center" 
                                        VerticalAlignment="Center"/>
-                                <RadioButton HorizontalAlignment="Center" 
+                                <RadioButton Name="NotificationOff" 
+                                             HorizontalAlignment="Center" 
                                              VerticalAlignment="Center" 
-                                             Margin="0,6,0,7"/>
+                                             Margin="0,6,0,7" 
+                                             Checked="NotificationOff_Checked"/>
                             </StackPanel>
                         </GroupBox>
                         <Separator Margin="10,2,0,2"/>
                         <GroupBox Header="Group Deletion">
                             <StackPanel Orientation="Horizontal">
                                 <Label Content="Enable"/>
-                                <RadioButton HorizontalAlignment="Center" 
-                                             VerticalAlignment="Center"/>
+                                <RadioButton Name="GroupdeleteEnabled" 
+                                             HorizontalAlignment="Center" 
+                                             VerticalAlignment="Center" 
+                                             Checked="GroupDeletionEnabled_Checked"/>
                                 <Label Content="Disable"/>
-                                <RadioButton HorizontalAlignment="Center" 
-                                             VerticalAlignment="Center"/>
+                                <RadioButton Name="GroupDeletionDisabled" 
+                                             HorizontalAlignment="Center" 
+                                             VerticalAlignment="Center" 
+                                             Checked="GroupDeletionDisabled_Checked"/>
                             </StackPanel>
                         </GroupBox>
                     </StackPanel>
