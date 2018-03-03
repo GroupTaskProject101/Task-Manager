@@ -1,6 +1,4 @@
-﻿using Personal_Task_Manager.Data;
-using Personal_Task_Manager.Managers;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,27 +19,16 @@ namespace Personal_Task_Manager
     /// </summary>
     public partial class CreateTaskWindow : Window
     {
-        private TaskManager aTaskManager = new TaskManager();
-
         public CreateTaskWindow()
         {
             InitializeComponent();
-
-            AssignGroupCB.ItemsSource = GroupData.aGroupCollection;
         }
 
         private void loadTaskFileBtn_Click_1(object sender, RoutedEventArgs e)
         {
-            MultipleTaskWindow aMultipleTaskWindow = new MultipleTaskWindow();
+            MultipleTaskWindow multipleTaskWindow = new MultipleTaskWindow();
 
-            aMultipleTaskWindow.ShowDialog();
-        }
-
-        private void AddTaskBtn_Click(object sender, RoutedEventArgs e)
-        {
-            aTaskManager.CreateTask(TaskNameTb.Text, DescriptionTb.Text, AssignGroupCB.SelectedValue.ToString());
-
-            this.Close();
+            multipleTaskWindow.ShowDialog();
         }
     }
 }

@@ -110,10 +110,6 @@
                VerticalAlignment="Top" 
                FontSize="10" 
                FontWeight="Bold"/>
-        <DatePicker HorizontalAlignment="Left" 
-                    Margin="288,39,0,0"
-                    VerticalAlignment="Top"
-                    Width="125"
-                    IsTodayHighlighted="True"/>
+        <DatePicker HorizontalAlignment="Left" Margin="288,39,0,0" VerticalAlignment="Top" Width="125" IsTodayHighlighted="True"/>
     </Grid>
 </Window>

@@ -121,7 +121,6 @@ namespace Personal_Task_Manager.Managers
         /// Deletes a selected task from the task collection
         /// </summary>
         /// <param name="aTask"></param>
-
         public void DeleteTask(TaskData aTask)
         {
             if (aTask != null)
@@ -134,9 +133,55 @@ namespace Personal_Task_Manager.Managers
         /// Searches for the specified task name in the task collection
         /// </summary>
         /// <param name="aName"></param>
-        public void SearchTasks(string aName,string aCategory)
+        public  void SearchTasks(string aName,string aField)
         {
-            
+            HashSet<TaskData> tasksFound = new HashSet<TaskData>();
+            Regex exp = new Regex(aName);
+            TaskData.aFoundTaskCollection.Clear();
+
+            if (aField.Equals("All"))
+            {
+                foreach (TaskData nextTask in TaskData.aTaskCollection)
+                {
+                    if (exp.IsMatch(nextTask.Description) || exp.IsMatch(nextTask.Name) || exp.IsMatch(nextTask.Group))
+                    {
+                        tasksFound.Add(nextTask);
+                    }
+                }
+            }
+            else
+            {
+                foreach (TaskData nextTask in TaskData.aTaskCollection)
+                {
+                    switch (aField)
+                    {
+                        case "Name":
+                            if (exp.IsMatch(nextTask.Name))
+                            {
+                                tasksFound.Add(nextTask);
+                            }
+                            break;
+                        case "Description":
+                            if (exp.IsMatch(nextTask.Description))
+                            {
+                                tasksFound.Add(nextTask);
+                            }
+                            break;
+                        case "Group":
+                            if (exp.IsMatch(nextTask.Group))
+                            {
+                                tasksFound.Add(nextTask);
+                            }
+                            break;
+                    }
+                }
+            }
+
+            foreach (TaskData nextTask in tasksFound)
+            {
+                TaskData.aFoundTaskCollection.Add(nextTask);
+            }
+
         }
 
         public TaskData SearchTasks(Guid aGUID)

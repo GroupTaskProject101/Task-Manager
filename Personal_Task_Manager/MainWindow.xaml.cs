@@ -31,16 +31,17 @@ namespace Personal_Task_Manager
             InitializeClock();
             InitializeTimingLoop();
 
-            CommandManager.RegisterClassInputBinding(typeof(System.Windows.Controls.DataGrid),
-                new InputBinding(System.Windows.Controls.DataGrid.DeleteCommand, new KeyGesture(Key.Delete)));
+            
 
             //Todo Make this called only on load and Save State
             aTextManager.ParseFile();
 
             DataContext = aTaskData;
+
             TaskList.DataContext = TaskData.aTaskCollection;
+
             ProgressSP.DataContext = TaskData.Count;
-            SearchList.DataContext = TaskData.aFoundTaskCollection;           
+            SearchList.DataContext = TaskData.aFoundTaskCollection;
         }
 
         private void InitializeTimingLoop()
@@ -240,7 +241,6 @@ namespace Personal_Task_Manager
 
         private void SearchBtn_Click(object sender, RoutedEventArgs e)
         {
-                      
         }
 
         private void setButtonVisibility()
