@@ -182,27 +182,26 @@
                                       AlternationCount="2"
                                       AlternatingRowBackground="AliceBlue"
                                       AutoGenerateColumns="False"
-
-                                      IsReadOnly="True" SelectionChanged="TaskList_SelectionChanged">
+                                      IsReadOnly="False">
                                 <DataGrid.Columns>
                                     <DataGridCheckBoxColumn Header=""
                                                             Width="Auto"
                                                             Binding="{Binding IsChecked, Mode=TwoWay}"/>
                                     <DataGridTextColumn Header="TaskNo" 
                                                         Width="Auto"
-                                                        Binding="{Binding TaskNo}"/>
+                                                        Binding="{Binding TaskNo, Mode=TwoWay}"/>
                                     <DataGridTextColumn Header="Name" 
                                                         Width="Auto"
-                                                        Binding="{Binding Name}"/>
+                                                        Binding="{Binding Name, Mode=TwoWay}"/>
                                     <DataGridTextColumn Header="Group" 
                                                         Width="Auto"
-                                                        Binding="{Binding Group}"/>
+                                                        Binding="{Binding Group, Mode=TwoWay}"/>
                                     <DataGridTextColumn Header="Due" 
                                                         Width="Auto"
-                                                        Binding="{Binding EndDate, StringFormat='d/M HH:MM tt'}"/>
+                                                        Binding="{Binding EndDate, StringFormat='d/M HH:MM tt', Mode=TwoWay}"/>
                                     <DataGridTextColumn Header="Description" 
                                                         Width="Auto"
-                                                        Binding="{Binding Description}"/>
+                                                        Binding="{Binding Description, Mode=TwoWay}"/>
                                 </DataGrid.Columns>
                             </DataGrid>
                         </GroupBox>
@@ -286,7 +285,7 @@
                               AlternationCount="2"
                               AlternatingRowBackground="AliceBlue"
                               AutoGenerateColumns="false"
-                              IsReadOnly="True"
+                              IsReadOnly="False"
                               SelectionMode="Single">
                         <DataGrid.Columns>
                             <DataGridCheckBoxColumn Header=""
@@ -294,11 +293,10 @@
                                                     Binding="{Binding IsChecked, Mode=TwoWay}"/>
                             <DataGridTextColumn Header="TaskNo" 
                                                         Width="1*"
-                                                        Binding="{Binding TaskNo, Mode=OneTime}"
-                                                        IsReadOnly="True"/>
+                                                        Binding="{Binding TaskNo, Mode=TwoWay}"/>
                             <DataGridTextColumn Header="Name" 
                                                         Width="1*"
-                                                        Binding="{Binding Name}"/>
+                                                        Binding="{Binding Name, Mode=TwoWay}"/>
                             <DataGridTextColumn Header="Group" 
                                                         Width="1*"
                                                         Binding="{Binding Group, Mode=TwoWay}"/>
@@ -309,24 +307,8 @@
                                                         Width="3*"
                                                         Binding="{Binding Description, Mode=TwoWay}"/>
                         </DataGrid.Columns>
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="TaskNo" 
-                                                        Width="Auto"
-                                                        Binding="{Binding TaskNo}"/>
-                            <DataGridTextColumn Header="Name" 
-                                                        Width="Auto"
-                                                        Binding="{Binding Name}"/>
-                            <DataGridTextColumn Header="Group" 
-                                                        Width="Auto"
-                                                        Binding="{Binding Group}"/>
-                            <DataGridTextColumn Header="Due" 
-                                                        Width="Auto"
-                                                        Binding="{Binding EndDate, StringFormat='d/M HH:MM tt'}"/>
-                            <DataGridTextColumn Header="Description" 
-                                                        Width="Auto"
-                                                        Binding="{Binding Description}"/>
-                        </DataGrid.Columns>
                     </DataGrid>
+                    
                     <Separator Margin="10,5"/>
                     <Button Name="SearchBtn" 
                             Content="Begin Search" 

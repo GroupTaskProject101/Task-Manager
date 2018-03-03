@@ -139,7 +139,7 @@ namespace Personal_Task_Manager.Managers
             Regex exp = new Regex(aName);
             TaskData.aFoundTaskCollection.Clear();
 
-            if (aField.Equals("All"))
+            if (aField.Equals("All Categories"))
             {
                 foreach (TaskData nextTask in TaskData.aTaskCollection)
                 {

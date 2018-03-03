@@ -241,6 +241,10 @@ namespace Personal_Task_Manager
 
         private void SearchBtn_Click(object sender, RoutedEventArgs e)
         {
+            if (SearchElement.Text != String.Empty)
+            {
+                aTaskManager.SearchTasks(SearchElement.Text, CategoryCB.Text);
+            }
         }
 
         private void setButtonVisibility()
