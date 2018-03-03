@@ -28,14 +28,14 @@
                   Background="White">
                 <MenuItem Name="FileMenu" 
                           Header="_File">
-                    <MenuItem Name="Open"
+                    <MenuItem Name="OpenMenu"
                               Header="_Open"
                               Click="MenuOpen_Click"/>
-                    <MenuItem Name="Save"
+                    <MenuItem Name="SaveMenu"
                               Header="_Save"
                               Click="MenuSave_Click"/>
                     <Separator/>
-                    <MenuItem Name="Exit"
+                    <MenuItem Name="ExitMenu"
                               Header="_Exit"
                               Click="MenuExit_Click"/>
                 </MenuItem>
@@ -48,7 +48,7 @@
                               Header="_Delete"
                               Click="MenuDelete_Click"/>
                 </MenuItem>
-                <MenuItem Name="View" 
+                <MenuItem Name="ViewMenu" 
                           Header="_View">
                     <MenuItem Name="MultipletaskWindow" 
                               Header="_Multiple Task Window"
@@ -60,7 +60,7 @@
                               Header="_Group Window"
                               Click="MenuGroupWindow_Click"/>
                 </MenuItem>
-                <MenuItem Name="Help" 
+                <MenuItem Name="HelpMenu" 
                           Header="_Help">
                     <MenuItem Name="Documentation" 
                               Header="_Documentation"
@@ -182,8 +182,11 @@
                                       AlternationCount="2"
                                       AlternatingRowBackground="AliceBlue"
                                       AutoGenerateColumns="False"
-                                      IsReadOnly="True">
+                                      IsReadOnly="false">
                                 <DataGrid.Columns>
+                                    <DataGridCheckBoxColumn Header=""
+                                                            Width="Auto"
+                                                            Binding="{Binding IsChecked, Mode=TwoWay}"/>
                                     <DataGridTextColumn Header="TaskNo" 
                                                         Width="Auto"
                                                         Binding="{Binding TaskNo}"/>
@@ -275,18 +278,41 @@
                     </StackPanel>
                     <Separator/>
                     <DataGrid Name="SearchList"
-                                      ItemsSource="{Binding}"
-                                      Width="465"
-                                      Background="White"
-                                      AlternationCount="2"
-                                      AlternatingRowBackground="AliceBlue"
-                                      AutoGenerateColumns="False"
-                                      IsReadOnly="True">
+                              ItemsSource="{Binding}"
+                              Width="465"
+                              Background="White"
+                              AlternationCount="2"
+                              AlternatingRowBackground="AliceBlue"
+                              AutoGenerateColumns="false"
+                              IsReadOnly="True"
+                              SelectionMode="Single">
+                        <DataGrid.Columns>
+                            <DataGridCheckBoxColumn Header=""
+                                                    Width="Auto"
+                                                    Binding="{Binding IsChecked, Mode=TwoWay}"/>
+                            <DataGridTextColumn Header="TaskNo" 
+                                                        Width="1*"
+                                                        Binding="{Binding TaskNo, Mode=OneTime}"
+                                                        IsReadOnly="True"/>
+                            <DataGridTextColumn Header="Name" 
+                                                        Width="1*"
+                                                        Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header="Group" 
+                                                        Width="1*"
+                                                        Binding="{Binding Group, Mode=TwoWay}"/>
+                            <DataGridTextColumn Header="Due" 
+                                                        Width="2*"
+                                                        Binding="{Binding EndDate, StringFormat='d/M HH:MM tt', Mode=TwoWay}"/>
+                            <DataGridTextColumn Header="Description" 
+                                                        Width="3*"
+                                                        Binding="{Binding Description, Mode=TwoWay}"/>
+                        </DataGrid.Columns>
                     </DataGrid>
                     <Separator Margin="10,5"/>
                     <Button Name="SearchBtn" 
                             Content="Begin Search" 
-                            Margin="10,0" Click="SearchBtn_Click" 
+                            Margin="10,0" 
+                            Click="SearchBtn_Click" 
                             IsEnabled="False"/>
                 </StackPanel>
             </TabItem>

@@ -24,6 +24,7 @@ namespace Personal_Task_Manager.Data
         private DateTime endDate;
         private Guid taskGuid;
         private bool completed;
+        private bool isChecked;
         public static ObservableCollection<TaskData> aCompletedTaskGroup = new ObservableCollection<TaskData>();
         public static ObservableCollection<TaskData> aTaskCollection = new ObservableCollection<TaskData>();
         public static ObservableCollection<TaskData> aFoundTaskCollection = new ObservableCollection<TaskData>();
@@ -148,22 +149,42 @@ namespace Personal_Task_Manager.Data
                 count = value;
             }
         }
+
+        public bool IsChecked
+        {
+            get
+            {
+                return isChecked;
+            }
+            set
+            {
+                isChecked = value;
+                OnPropertyChanged();
+            }
+        }
         #endregion
 
+
+        #region Constructors
+        public TaskData()
+        {
+            TaskGUID = Guid.NewGuid();
+        }
+        #endregion
 
         #region Methods
         /// <summary>
         /// Static method to be used with setting default value placeholders for databinding
         /// </summary>
         /// <returns></returns>
-        public static ObservableCollection<TaskData> GetTaskData()
-        {
-            TextManager aTextManager = new TextManager();
-            //TODO Add logic to actually determine if there is a savefile path.
-            aTextManager.ParseFile();
+        //public static ObservableCollection<TaskData> GetTaskData()
+        //{
+        //    TextManager aTextManager = new TextManager();
+        //    //TODO Add logic to actually determine if there is a savefile path.
+        //    aTextManager.ParseFile();
 
-            return aTaskCollection;
-        }
+        //    return aTaskCollection;
+        //}
         #endregion
 
 

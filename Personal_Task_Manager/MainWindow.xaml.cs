@@ -6,6 +6,8 @@ using System.Globalization;
 using System.Windows.Forms;
 using Personal_Task_Manager.Managers;
 using System.IO;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Personal_Task_Manager
 {
@@ -29,11 +31,16 @@ namespace Personal_Task_Manager
             InitializeClock();
             InitializeTimingLoop();
 
+            CommandManager.RegisterClassInputBinding(typeof(System.Windows.Controls.DataGrid),
+                new InputBinding(System.Windows.Controls.DataGrid.DeleteCommand, new KeyGesture(Key.Delete)));
+
+            //Todo Make this called only on load and Save State
+            aTextManager.ParseFile();
+
             DataContext = aTaskData;
-            TaskData.GetTaskData();
             TaskList.DataContext = TaskData.aTaskCollection;
-            //TaskList.DataContext = TaskData.GetTaskData();
             ProgressSP.DataContext = TaskData.Count;
+            SearchList.DataContext = TaskData.aFoundTaskCollection;           
         }
 
         private void InitializeTimingLoop()
@@ -138,7 +145,13 @@ namespace Personal_Task_Manager
 
         private void MenuDelete_Click(object sender, RoutedEventArgs e)
         {
-            //TODO Remove Item from the Task Collection
+            var selectedItem = SearchList.SelectedItem;
+
+            if (selectedItem != null)
+            {
+                TaskData.aFoundTaskCollection.Remove((TaskData)selectedItem);
+        
+            }
         }
 
         private void TextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
@@ -227,10 +240,7 @@ namespace Personal_Task_Manager
 
         private void SearchBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (SearchElement.Text != String.Empty)
-            {
-                aTaskManager.SearchTasks(SearchElement.Text, CategoryCB.Text);
-            }       
+                      
         }
 
         private void setButtonVisibility()

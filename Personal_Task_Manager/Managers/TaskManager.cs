@@ -105,6 +105,7 @@ namespace Personal_Task_Manager.Managers
                 TaskData aNewTask = new TaskData();
 
                 aNewTask.Name = aName;
+                aNewTask.IsChecked = false;
                 aNewTask.Description = aDescription;
                 aNewTask.Group = aGroup;
                 aNewTask.TaskNo = TaskData.Count++;
@@ -123,70 +124,19 @@ namespace Personal_Task_Manager.Managers
 
         public void DeleteTask(TaskData aTask)
         {
-
             if (aTask != null)
             {
                 TaskData.aTaskCollection.Remove(aTask);
             }  
         }
 
-
-
-
-        
         /// <summary>
         /// Searches for the specified task name in the task collection
         /// </summary>
         /// <param name="aName"></param>
-        public  void SearchTasks(string aName,string aField)
+        public void SearchTasks(string aName,string aCategory)
         {
-            HashSet<TaskData> tasksFound = new HashSet<TaskData>();
-            Regex exp = new Regex(aName);
-            TaskData.aFoundTaskCollection.Clear();
-
-            if (aField.Equals("all"))
-            {
-                foreach(TaskData nextTask in TaskData.aTaskCollection)
-                {
-                    if(exp.IsMatch(nextTask.Description) || exp.IsMatch(nextTask.Name) || exp.IsMatch(nextTask.Group))
-                    {
-                        tasksFound.Add(nextTask);
-                    }
-                }
-            }
-            else
-            {
-                foreach (TaskData nextTask in TaskData.aTaskCollection)
-                {
-                    switch (aField)
-                    {
-                        case "name":
-                            if (exp.IsMatch(nextTask.Name))
-                            {
-                                tasksFound.Add(nextTask);
-                            }
-                            break;
-                        case "Description":
-                            if (exp.IsMatch(nextTask.Description))
-                            {
-                                tasksFound.Add(nextTask);
-                            }
-                            break;
-                        case "group":
-                            if (exp.IsMatch(nextTask.Group))
-                            {
-                                tasksFound.Add(nextTask);
-                            }
-                            break;
-                    }
-                }
-            }
             
-            foreach(TaskData nextTask in tasksFound)
-            {
-                TaskData.aFoundTaskCollection.Add(nextTask);
-            }
-
         }
 
         public TaskData SearchTasks(Guid aGUID)
