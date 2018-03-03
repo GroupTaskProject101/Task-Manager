@@ -103,9 +103,12 @@ namespace Personal_Task_Manager.Managers
         /// Deletes a selected task from the task collection
         /// </summary>
         /// <param name="aTask"></param>
-        public void DeleteTask(string aTask)
+        public void DeleteTask(TaskData aTask)
         {
-            // TODO Implement Deletion of task
+            if(aTask != null)
+            {
+                TaskData.aTaskCollection.Remove(aTask);
+            }
         }
 
         /// <summary>
@@ -126,11 +129,11 @@ namespace Personal_Task_Manager.Managers
             Regex exp = new Regex(aName);
             TaskData.aFoundTaskCollection.Clear();
 
-            if (aField.Equals("all"))
+            if (aField.Equals("All"))
             {
-                foreach(TaskData nextTask in TaskData.aTaskCollection)
+                foreach (TaskData nextTask in TaskData.aTaskCollection)
                 {
-                    if(exp.IsMatch(nextTask.Description) || exp.IsMatch(nextTask.Name) || exp.IsMatch(nextTask.Group))
+                    if (exp.IsMatch(nextTask.Description) || exp.IsMatch(nextTask.Name) || exp.IsMatch(nextTask.Group))
                     {
                         tasksFound.Add(nextTask);
                     }
@@ -142,7 +145,7 @@ namespace Personal_Task_Manager.Managers
                 {
                     switch (aField)
                     {
-                        case "name":
+                        case "Name":
                             if (exp.IsMatch(nextTask.Name))
                             {
                                 tasksFound.Add(nextTask);
@@ -154,7 +157,7 @@ namespace Personal_Task_Manager.Managers
                                 tasksFound.Add(nextTask);
                             }
                             break;
-                        case "group":
+                        case "Group":
                             if (exp.IsMatch(nextTask.Group))
                             {
                                 tasksFound.Add(nextTask);
@@ -163,19 +166,19 @@ namespace Personal_Task_Manager.Managers
                     }
                 }
             }
-            
-            foreach(TaskData nextTask in tasksFound)
+
+            foreach (TaskData nextTask in tasksFound)
             {
                 TaskData.aFoundTaskCollection.Add(nextTask);
             }
 
         }
 
-        public TaskData SearchTasks(Guid aGUID)
+        public TaskData SearchTasks(int aTaskNumber)
         {
             foreach (TaskData nextTask in TaskData.aTaskCollection)
             {
-                if (nextTask.TaskGUID.Equals(aGUID))
+                if (nextTask.TaskNo == aTaskNumber)
                 {
                     return nextTask;
                 }

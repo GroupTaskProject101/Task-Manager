@@ -30,8 +30,10 @@ namespace Personal_Task_Manager
             InitializeTimingLoop();
 
             DataContext = aTaskData;
-            TaskList.DataContext = TaskData.GetTaskData();
+            TaskData.GetTaskData();
+            TaskList.DataContext = TaskData.aTaskCollection;
             ProgressSP.DataContext = TaskData.Count;
+            SearchList.DataContext = TaskData.aFoundTaskCollection;
         }
 
         private void InitializeTimingLoop()
@@ -222,7 +224,7 @@ namespace Personal_Task_Manager
             if (SearchElement.Text != String.Empty)
             {
                 aTaskManager.SearchTasks(SearchElement.Text, CategoryCB.Text);
-            }       
+            }
         }
 
         private void setButtonVisibility()
@@ -239,5 +241,6 @@ namespace Personal_Task_Manager
                 }
             }          
         }
+
     }
 }

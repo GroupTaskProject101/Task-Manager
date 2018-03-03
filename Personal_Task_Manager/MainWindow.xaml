@@ -180,7 +180,7 @@
                                       AlternationCount="2"
                                       AlternatingRowBackground="AliceBlue"
                                       AutoGenerateColumns="False"
-                                      IsReadOnly="True">
+                                      IsReadOnly="True" SelectionChanged="TaskList_SelectionChanged">
                                 <DataGrid.Columns>
                                     <DataGridTextColumn Header="TaskNo" 
                                                         Width="Auto"
@@ -265,7 +265,6 @@
                                     <ComboBoxItem Content="Name"/>
                                     <ComboBoxItem Content="Description"/>
                                     <ComboBoxItem Content="Group"/>
-                                    <ComboBoxItem Content="EndDate"/>
                                     <ComboBoxItem Content="All Categories"/>
                                 </ComboBox>
                             </StackPanel>
@@ -280,6 +279,23 @@
                                       AlternatingRowBackground="AliceBlue"
                                       AutoGenerateColumns="False"
                                       IsReadOnly="True">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="TaskNo" 
+                                                        Width="Auto"
+                                                        Binding="{Binding TaskNo}"/>
+                            <DataGridTextColumn Header="Name" 
+                                                        Width="Auto"
+                                                        Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header="Group" 
+                                                        Width="Auto"
+                                                        Binding="{Binding Group}"/>
+                            <DataGridTextColumn Header="Due" 
+                                                        Width="Auto"
+                                                        Binding="{Binding EndDate, StringFormat='d/M HH:MM tt'}"/>
+                            <DataGridTextColumn Header="Description" 
+                                                        Width="Auto"
+                                                        Binding="{Binding Description}"/>
+                        </DataGrid.Columns>
                     </DataGrid>
                     <Separator Margin="10,5"/>
                     <Button Name="SearchBtn" 
