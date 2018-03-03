@@ -6,6 +6,8 @@
 
 using Personal_Task_Manager.Data;
 using System;
+using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace Personal_Task_Manager.Managers
 {
@@ -32,14 +34,14 @@ namespace Personal_Task_Manager.Managers
         /// <summary>
         /// Sets the starting time to be used by the task
         /// </summary>
-        /// <param name="aTime"></param>
-        public void SetStartDate(DateTime aTime) => aTaskData.StartDate = aTime;
+        /// <param name="aDate"></param>
+        public void SetStartDate(DateTime aDate) => aTaskData.StartDate = aDate;
 
         /// <summary>
         /// Sets the ending time to be used by the task
         /// </summary>
-        /// <param name="aTime"></param>
-        public void SetEndDate(DateTime aTime) => aTaskData.EndDate = aTime;
+        /// <param name="aDate"></param>
+        public void SetEndDate(DateTime aDate) => aTaskData.EndDate = aDate;
 
         /// <summary>
         /// Sets the description of the task
@@ -92,55 +94,99 @@ namespace Personal_Task_Manager.Managers
         /// <summary>
         /// Creates a new Task which will be added to the task collection
         /// </summary>
-        public void CreateTask()
+        public void CreateTask(string aName, string aDescription = "", string aGroup = "" )
         {
-            // TODO Implement Creation of Task
+            if (aName != string.Empty)
+            {
+                TaskData aNewTask = new TaskData();
+
+                aNewTask.Name = aName;
+                aNewTask.Description = aDescription;
+                aNewTask.Group = aGroup;
+                aNewTask.TaskNo = TaskData.Count++;
+                aNewTask.Group = aGroupData.Name = aGroup;
+                aGroupData.TaskCount++;
+
+                TaskData.aTaskCollection.Add(aNewTask);
+                GroupData.aGroupCollection.Add(aGroupData);
+            }         
         }
 
         /// <summary>
         /// Deletes a selected task from the task collection
         /// </summary>
         /// <param name="aTask"></param>
-        public void DeleteTask(string aTask)
+        public void DeleteTask(TaskData aTask)
         {
-            // TODO Implement Deletion of task
-        }
-
-        /// <summary>
-        /// Sorts the task collection
-        /// </summary>
-        public void SortTasks()
-        {
-            // TODO Implement the sorting algorithm
+            if (aTask != null)
+            {
+                TaskData.aTaskCollection.Remove(aTask);
+            }  
         }
 
         /// <summary>
         /// Searches for the specified task name in the task collection
         /// </summary>
-        /// <param name="aName"></param>
-        public void SearchTasks(string aName, string aCategory)
+        /// <param name="aSearchValue"></param>
+        /// <param name="aCategory"></param>
+        public void SearchTasks(string aSearchValue, string aCategory)
         {
-            
+            switch (aCategory)
+            {
+                case "Name":
+                    foreach (TaskData item in TaskData.aTaskCollection)
+                    {
+                        if (item.Name.Equals(aSearchValue))
+                        {
+                            //Todo What does it do when it finds it
+                        }
+                    }
+                    break;
+                case "Description":
+                    foreach (TaskData item in TaskData.aTaskCollection)
+                    {
+                        if (item.Description.Equals(aSearchValue))
+                        {
+                            //Todo What does it do when it finds it
+                        }
+                    }
+                    break;
+                case "Group":
+                    foreach (TaskData item in TaskData.aTaskCollection)
+                    {
+                        if (item.Group.Equals(aSearchValue))
+                        {
+                            //Todo What does it do when it finds it
+                        }
+                    }
+                    break;
+                case "All Categories":
+
+                    break;
+                default:
+                    Console.WriteLine("Selection not found or Invalid input.");
+                    break;
+            }
         }
 
         /// <summary>
         /// Sets the task to the completed status
         /// </summary>
-        /// <param name="aName"></param>
-        public void CompleteTask(string aName)
+        /// <param name="aTaskData"></param>
+        public void CompleteTask(TaskData aTaskData)
         {
-            // TODO Implement setting of completion flag
+            aTaskData.Completed = false;
+
+            TaskData.aCompletedTaskGroup.Add(aTaskData);
         }
 
         /// <summary>
         /// Generates and returns a GUID
         /// </summary>
-        /// <returns>GUID</returns>
+        /// <returns></returns>
         public Guid CreateGUID()
         {
-            Guid temp = new Guid();
-
-            // TODO Implement Guid creation system
+            Guid temp = Guid.NewGuid();
 
             return temp;
         }

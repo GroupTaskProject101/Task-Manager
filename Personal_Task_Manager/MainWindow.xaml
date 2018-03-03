@@ -11,7 +11,9 @@
         Foreground="Black" 
         MinHeight="320"
         MinWidth="530" 
-        ResizeMode="NoResize" Loaded="Window_Loaded" Closed="Window_Closed">
+        ResizeMode="NoResize" 
+        Loaded="Window_Loaded" 
+        Closed="Window_Closed">
 
     <Grid Margin="0,0,-6,-1"
           Height="504" 
@@ -255,7 +257,8 @@
                                          Text="Enter Search Term" 
                                          HorizontalAlignment="Center" 
                                          VerticalAlignment="Center" 
-                                         Opacity="0.6" TextChanged="SearchElement_TextChanged"/>
+                                         Opacity="0.6" 
+                                         TextChanged="SearchElement_TextChanged"/>
                                 <Separator/>
                                 <Label Content="Category: "/>
                                 <ComboBox Name="CategoryCB"
@@ -265,7 +268,6 @@
                                     <ComboBoxItem Content="Name"/>
                                     <ComboBoxItem Content="Description"/>
                                     <ComboBoxItem Content="Group"/>
-                                    <ComboBoxItem Content="EndDate"/>
                                     <ComboBoxItem Content="All Categories"/>
                                 </ComboBox>
                             </StackPanel>

@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MultipleTaskWindow" Height="500" Width="500">
     <Grid>
-        <DataGrid Name="dataGrid" 
+        <DataGrid Name="dataGrid"
                   AlternatingRowBackground="LightBlue"
                   AlternationCount="2"
                   AutoGenerateColumns="False">
@@ -16,10 +16,9 @@
                                     Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Group"
                                     Binding="{Binding Group}"/>
-                <DataGridTextColumn Header="StartTime"
-                                    Binding="{Binding StartTime}"/>
-                <DataGridTextColumn Header="EndTime"
-                                    Binding="{Binding EndTime}"/>
+                <DataGridTextColumn Header="Due" 
+                                    Width="Auto"
+                                    Binding="{Binding EndDate, StringFormat='d/M HH:MM tt'}"/>
                 <DataGridTextColumn Header="Description"
                                     Binding="{Binding Description}"/>
             </DataGrid.Columns>

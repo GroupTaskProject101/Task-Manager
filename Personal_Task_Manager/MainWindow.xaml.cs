@@ -30,7 +30,9 @@ namespace Personal_Task_Manager
             InitializeTimingLoop();
 
             DataContext = aTaskData;
-            TaskList.DataContext = TaskData.GetTaskData();
+            TaskData.GetTaskData();
+            TaskList.DataContext = TaskData.aTaskCollection;
+            //TaskList.DataContext = TaskData.GetTaskData();
             ProgressSP.DataContext = TaskData.Count;
         }
 
@@ -51,6 +53,11 @@ namespace Personal_Task_Manager
                 }, this.Dispatcher);
         }
 
+        void timer_Tick(object sender, EventArgs e)
+        {
+
+        }
+
         private void createTaskBtn_Click(object sender, RoutedEventArgs e)
         {
             CreateTaskWindow createTaskWindow = new CreateTaskWindow();
@@ -63,11 +70,6 @@ namespace Personal_Task_Manager
             CreateGroupWindow createGroupWindow = new CreateGroupWindow();
 
             createGroupWindow.ShowDialog();
-        }
-
-        void timer_Tick(object sender, EventArgs e)
-        {
-            //TotalTaskTB.Text = TaskData.count.ToString(); 
         }
 
 
@@ -108,29 +110,35 @@ namespace Personal_Task_Manager
         //**********************View Menu**********************
         private void MenuMultipletaskWindow_Click(object sender, RoutedEventArgs e)
         {
+            MultipleTaskWindow aMultipleTaskWindow = new MultipleTaskWindow();
 
+            aMultipleTaskWindow.ShowDialog();
         }
 
         private void MenuEditTaskWindow_Click(object sender, RoutedEventArgs e)
         {
+            EditTaskWindow aEditTaskWindow = new EditTaskWindow();
 
+            aEditTaskWindow.ShowDialog();
         }
 
         private void MenuGroupWindow_Click(object sender, RoutedEventArgs e)
         {
+            CreateGroupWindow createGroupWindow = new CreateGroupWindow();
 
+            createGroupWindow.ShowDialog();
         }
 
 
         //**********************Edit Menu**********************
         private void MenuEdit_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void MenuDelete_Click(object sender, RoutedEventArgs e)
         {
-
+            //TODO Remove Item from the Task Collection
         }
 
         private void TextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)

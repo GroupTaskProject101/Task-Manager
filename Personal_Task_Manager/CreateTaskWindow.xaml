@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Personal_Task_Manager"
         mc:Ignorable="d"
         Title="Create Task Window" 
         Height="286.143" 
@@ -15,29 +16,25 @@
                     <StackPanel Orientation="Horizontal">
                         <StackPanel Orientation="Vertical">
                             <Label Content="Task Name"/>
-                            <TextBox Text="Enter Task Name"
+                            <TextBox Name="TaskNameTb" 
+                                     Text="Enter Task Name"
                                      Width=" 150"
-                                     Height="20" 
+                                     Height="25" 
                                      FontWeight="Normal"/>
                         </StackPanel>
                         <Separator HorizontalAlignment="Center" 
                                    VerticalAlignment="Center"/>
                         <StackPanel Orientation="Vertical">
-                            <Label Content="Start Time"/>
-                            <TextBox Text="12:00 PM"
-                                     Width=" 70"
-                                     Height="20"
-                                     Margin="5,0,5,0"
-                                     FontWeight="Normal"/>
                         </StackPanel>
                         <StackPanel Orientation="Vertical">
                             <Label Content="End Time"/>
                             <TextBox Text="3:00 PM"
                                      Width=" 70"
-                                     Height="20" 
+                                     Height="25" 
+                                     Margin="5,0,5,0"
                                      FontWeight="Normal"/>
                         </StackPanel>
-                        <DatePicker Margin="5,0,5,0"
+                        <DatePicker Margin="5,0,5,1"
                                     Height="25" 
                                     VerticalAlignment="Bottom"/>
                     </StackPanel>
@@ -46,23 +43,30 @@
             </StackPanel>
             <GroupBox Header="Description" 
                       FontWeight="Bold">
-                <TextBox Height="125"
+                <TextBox Name="DescriptionTb" 
+                         Height="125"
                          Text="Enter Task Description" 
                          FontWeight="Normal"/>
             </GroupBox>
             <StackPanel Orientation="Horizontal">
                 <Label Content="Assign Group"/>
-                <ComboBox Height="20"/>
+                <ComboBox Name="AssignGroupCB"
+                          ItemsSource="{Binding}"
+                          DisplayMemberPath="Name"
+                          SelectedValuePath="Name"
+                          SelectedValue="{Binding Name}"
+                          Height="20"/>
                 <Separator VerticalAlignment="Center" 
                            HorizontalAlignment="Center"/>
                 <Button Name="loadTaskFileBtn"
                         Content="Load Task File"
                         Height="20"
-                        Margin="170,0,10,0" 
+                        Margin="10,0,10,0" 
                         Click="loadTaskFileBtn_Click_1"/>
                 <Separator/>
-                <Button Content="Add Task"
-                        Height="20"/>
+                <Button Name="AddTaskBtn"
+                        Content="Add Task"
+                        Height="20" Click="AddTaskBtn_Click"/>
             </StackPanel>
         </StackPanel>
     </Grid>

@@ -23,7 +23,8 @@ namespace Personal_Task_Manager
         public MultipleTaskWindow()
         {
             InitializeComponent();
-            DataContext = dataGrid.ItemsSource = TaskData.GetTaskData();
+            
+            DataContext = dataGrid.ItemsSource = TaskData.aTaskCollection;
         }
     }
 }
