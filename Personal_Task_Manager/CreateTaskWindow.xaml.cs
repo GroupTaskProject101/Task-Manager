@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Personal_Task_Manager.Data;
+using Personal_Task_Manager.Managers;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Personal_Task_Manager
 {
@@ -19,16 +9,34 @@ namespace Personal_Task_Manager
     /// </summary>
     public partial class CreateTaskWindow : Window
     {
+        private TaskManager aTaskManager = new TaskManager();
+
         public CreateTaskWindow()
         {
             InitializeComponent();
+
+            AssignGroupCB.ItemsSource = GroupData.aGroupCollection;
         }
 
         private void loadTaskFileBtn_Click_1(object sender, RoutedEventArgs e)
         {
-            MultipleTaskWindow multipleTaskWindow = new MultipleTaskWindow();
+            MultipleTaskWindow aMultipleTaskWindow = new MultipleTaskWindow();
 
-            multipleTaskWindow.ShowDialog();
+            aMultipleTaskWindow.ShowDialog();
+        }
+
+        private void AddTask_Click(object sender, RoutedEventArgs e)
+        {
+            if (AssignGroupCB.SelectedIndex != -1)
+            {
+                aTaskManager.CreateTask(TaskNameTb.Text, DescriptionTb.Text, AssignGroupCB.SelectedValue.ToString());
+            }
+            else
+            {
+                aTaskManager.CreateTask(TaskNameTb.Text, DescriptionTb.Text);
+            }         
+
+            this.Close();
         }
     }
 }

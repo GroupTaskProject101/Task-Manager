@@ -31,8 +31,6 @@ namespace Personal_Task_Manager
             InitializeClock();
             InitializeTimingLoop();
 
-            
-
             //Todo Make this called only on load and Save State
             aTextManager.ParseFile();
 
