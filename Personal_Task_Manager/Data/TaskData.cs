@@ -26,6 +26,8 @@ namespace Personal_Task_Manager.Data
         private bool completed;
         public static ObservableCollection<TaskData> aCompletedTaskGroup = new ObservableCollection<TaskData>();
         public static ObservableCollection<TaskData> aTaskCollection = new ObservableCollection<TaskData>();
+        public static ObservableCollection<TaskData> aFoundTaskCollection = new ObservableCollection<TaskData>();
+
         public GroupData aGroupData = new GroupData();
         #endregion
 

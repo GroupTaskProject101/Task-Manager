@@ -8,6 +8,8 @@ using Personal_Task_Manager.Data;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 namespace Personal_Task_Manager.Managers
 {
@@ -34,12 +36,14 @@ namespace Personal_Task_Manager.Managers
         /// <summary>
         /// Sets the starting time to be used by the task
         /// </summary>
+
         /// <param name="aDate"></param>
         public void SetStartDate(DateTime aDate) => aTaskData.StartDate = aDate;
 
         /// <summary>
         /// Sets the ending time to be used by the task
         /// </summary>
+
         /// <param name="aDate"></param>
         public void SetEndDate(DateTime aDate) => aTaskData.EndDate = aDate;
 
@@ -116,58 +120,87 @@ namespace Personal_Task_Manager.Managers
         /// Deletes a selected task from the task collection
         /// </summary>
         /// <param name="aTask"></param>
+
         public void DeleteTask(TaskData aTask)
         {
+
             if (aTask != null)
             {
                 TaskData.aTaskCollection.Remove(aTask);
             }  
         }
 
+
+
+
+        
         /// <summary>
         /// Searches for the specified task name in the task collection
         /// </summary>
-        /// <param name="aSearchValue"></param>
-        /// <param name="aCategory"></param>
-        public void SearchTasks(string aSearchValue, string aCategory)
+        /// <param name="aName"></param>
+        public  void SearchTasks(string aName,string aField)
         {
-            switch (aCategory)
-            {
-                case "Name":
-                    foreach (TaskData item in TaskData.aTaskCollection)
-                    {
-                        if (item.Name.Equals(aSearchValue))
-                        {
-                            //Todo What does it do when it finds it
-                        }
-                    }
-                    break;
-                case "Description":
-                    foreach (TaskData item in TaskData.aTaskCollection)
-                    {
-                        if (item.Description.Equals(aSearchValue))
-                        {
-                            //Todo What does it do when it finds it
-                        }
-                    }
-                    break;
-                case "Group":
-                    foreach (TaskData item in TaskData.aTaskCollection)
-                    {
-                        if (item.Group.Equals(aSearchValue))
-                        {
-                            //Todo What does it do when it finds it
-                        }
-                    }
-                    break;
-                case "All Categories":
+            HashSet<TaskData> tasksFound = new HashSet<TaskData>();
+            Regex exp = new Regex(aName);
+            TaskData.aFoundTaskCollection.Clear();
 
-                    break;
-                default:
-                    Console.WriteLine("Selection not found or Invalid input.");
-                    break;
+            if (aField.Equals("all"))
+            {
+                foreach(TaskData nextTask in TaskData.aTaskCollection)
+                {
+                    if(exp.IsMatch(nextTask.Description) || exp.IsMatch(nextTask.Name) || exp.IsMatch(nextTask.Group))
+                    {
+                        tasksFound.Add(nextTask);
+                    }
+                }
             }
+            else
+            {
+                foreach (TaskData nextTask in TaskData.aTaskCollection)
+                {
+                    switch (aField)
+                    {
+                        case "name":
+                            if (exp.IsMatch(nextTask.Name))
+                            {
+                                tasksFound.Add(nextTask);
+                            }
+                            break;
+                        case "Description":
+                            if (exp.IsMatch(nextTask.Description))
+                            {
+                                tasksFound.Add(nextTask);
+                            }
+                            break;
+                        case "group":
+                            if (exp.IsMatch(nextTask.Group))
+                            {
+                                tasksFound.Add(nextTask);
+                            }
+                            break;
+                    }
+                }
+            }
+            
+            foreach(TaskData nextTask in tasksFound)
+            {
+                TaskData.aFoundTaskCollection.Add(nextTask);
+            }
+
         }
+
+        public TaskData SearchTasks(Guid aGUID)
+        {
+            foreach (TaskData nextTask in TaskData.aTaskCollection)
+            {
+                if (nextTask.TaskGUID.Equals(aGUID))
+                {
+                    return nextTask;
+                }
+            }
+            return null;
+        }
+
 
         /// <summary>
         /// Sets the task to the completed status
@@ -175,6 +208,7 @@ namespace Personal_Task_Manager.Managers
         /// <param name="aTaskData"></param>
         public void CompleteTask(TaskData aTaskData)
         {
+
             aTaskData.Completed = false;
 
             TaskData.aCompletedTaskGroup.Add(aTaskData);
@@ -183,9 +217,11 @@ namespace Personal_Task_Manager.Managers
         /// <summary>
         /// Generates and returns a GUID
         /// </summary>
+
         /// <returns></returns>
         public Guid CreateGUID()
         {
+
             Guid temp = Guid.NewGuid();
 
             return temp;
