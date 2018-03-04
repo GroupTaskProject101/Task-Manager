@@ -148,8 +148,7 @@ namespace Personal_Task_Manager
 
             if (selectedItem != null)
             {
-                TaskData.aFoundTaskCollection.Remove((TaskData)selectedItem);
-        
+                TaskData.aFoundTaskCollection.Remove((TaskData)selectedItem);     
             }
         }
 

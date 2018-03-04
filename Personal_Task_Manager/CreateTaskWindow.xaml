@@ -23,17 +23,27 @@
                         </StackPanel>
                         <Separator HorizontalAlignment="Center" 
                                    VerticalAlignment="Center"/>
-                        <StackPanel Orientation="Vertical"/>
                         <StackPanel Orientation="Vertical">
                             <Label Content="End Time"/>
                             <TextBox Name="EndTimeTb" 
-                                     Text="3:00 PM"
+                                     Text="3:00"
                                      Width=" 70"
                                      Height="25" 
                                      Margin="5,0,5,0"
                                      FontWeight="Normal"/>
                         </StackPanel>
-                        <DatePicker Margin="5,0,5,0"
+                        <StackPanel>
+                            <RadioButton Name="AMRb" 
+                                         Content="AM"
+                                         Margin="5,20,5,0"
+                                         IsChecked="True"/>
+                            <RadioButton Name="PMRb" 
+                                         Content="PM"
+                                         Margin="5,0,5,0"
+                                         IsChecked="False"/>
+                        </StackPanel>
+                        <DatePicker Name="SelectDateDD" 
+                                    Margin="5,0,5,0"
                                     Height="25" 
                                     VerticalAlignment="Bottom"/>
                     </StackPanel>

@@ -27,15 +27,28 @@ namespace Personal_Task_Manager
 
         private void AddTask_Click(object sender, RoutedEventArgs e)
         {
-            if (AssignGroupCB.SelectedIndex != -1)
+            if (AssignGroupCB.SelectedIndex == -1)
             {
-                aTaskManager.CreateTask(TaskNameTb.Text, DescriptionTb.Text, AssignGroupCB.SelectedValue.ToString());
+                if (SelectDateDD.SelectedDate != null)
+                {
+                    aTaskManager.CreateTask(TaskNameTb.Text, DescriptionTb.Text, "", EndTimeTb.Text, AMRb.IsChecked, SelectDateDD.SelectedDate.Value.ToShortDateString());
+                }
+                else
+                {
+                    aTaskManager.CreateTask(TaskNameTb.Text, DescriptionTb.Text, "", EndTimeTb.Text, AMRb.IsChecked, "");
+                }               
             }
             else
             {
-                aTaskManager.CreateTask(TaskNameTb.Text, DescriptionTb.Text);
-            }         
-
+                if (SelectDateDD.SelectedDate != null)
+                {
+                    aTaskManager.CreateTask(TaskNameTb.Text, DescriptionTb.Text, AssignGroupCB.SelectedValue.ToString(), EndTimeTb.Text, AMRb.IsChecked, SelectDateDD.SelectedDate.Value.ToShortDateString());
+                }
+                else
+                {
+                    aTaskManager.CreateTask(TaskNameTb.Text, DescriptionTb.Text, AssignGroupCB.SelectedValue.ToString(), EndTimeTb.Text, AMRb.IsChecked, "");
+                }                 
+            }
             this.Close();
         }
     }

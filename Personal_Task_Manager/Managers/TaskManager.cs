@@ -10,6 +10,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
+using System.Globalization;
 
 namespace Personal_Task_Manager.Managers
 {
@@ -96,24 +97,44 @@ namespace Personal_Task_Manager.Managers
 
         #region Methods
         /// <summary>
-        /// Creates a new Task which will be added to the task collection
+        /// 
         /// </summary>
-        public void CreateTask(string aName, string aDescription = "", string aGroup = "" )
+        /// <param name="aName"></param>
+        /// <param name="aDescription"></param>
+        /// <param name="aGroup"></param>
+        /// <param name="aEndTime"></param>
+        /// <param name="aSelectedDate"></param>
+        public void CreateTask(string aName, string aDescription = "", string aGroup = "" , string aEndTime = "0:01 PM", bool? aAMPM = false, string aSelectedDate = "1/01/1999")
         {
             if (aName != string.Empty)
             {
                 TaskData aNewTask = new TaskData();
+                string tempAMPM = "";
 
                 aNewTask.Name = aName;
                 aNewTask.IsChecked = false;
                 aNewTask.Description = aDescription;
-                aNewTask.Group = aGroup;
-                aNewTask.TaskNo = TaskData.Count++;
-                aNewTask.Group = aGroupData.Name = aGroup;
-                aGroupData.TaskCount++;
 
-                TaskData.aTaskCollection.Add(aNewTask);
-                GroupData.aGroupCollection.Add(aGroupData);
+                tempAMPM = aAMPM == true ? "AM" : "PM";                
+
+                if (aSelectedDate != "")
+                {
+                    string temp = aSelectedDate + " " + aEndTime + " " + tempAMPM;
+                    aNewTask.EndDate = DateTime.ParseExact(temp, "M/d/yyyy h:mm tt", CultureInfo.InvariantCulture);
+                }
+
+                if (aGroup != "")
+                {
+                    aNewTask.Group = aGroup;
+                    aNewTask.Group = aGroupData.Name = aGroup;
+                    aGroupData.TaskCount++;
+
+                    GroupData.aGroupCollection.Add(aGroupData);
+                }
+                
+                aNewTask.TaskNo = TaskData.Count++;
+
+                TaskData.aTaskCollection.Add(aNewTask);              
             }         
         }
 
