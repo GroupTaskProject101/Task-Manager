@@ -10,20 +10,21 @@ using System.Threading.Tasks;
 namespace Personal_Task_Manager.Managers.Tests
 {
     [TestClass()]
-    public class TextManagerTests
+    public class FileManagerTests
     {
         [TestMethod()]
-        public void ParseFile_ReadInName_AddsValueToCollection()
+        public void SaveTest()
         {
-            TextManager manager = new TextManager();
-            TaskManager.CreateTask("TestTask");
             FileData.SaveFileLocation = @"../../Resources/testtext.txt";
-            manager.ParseFile();
+            FileManager.Save(" ");
+            Assert.AreEqual(FileData.SaveFileLocation, FileManager.LoadLastSave());
+        }
 
-            string expectedName = "TestTask";
-            string actualName = TaskData.aTaskCollection[0].Name;
-
-            Assert.AreEqual(expectedName, actualName);
-        }    
+        [TestMethod()]
+        public void LoadLastSaveTest()
+        {
+            String expected = @"../../Resources/testtext.txt";
+            Assert.AreEqual(expected, FileManager.LoadLastSave());
+        }
     }
 }

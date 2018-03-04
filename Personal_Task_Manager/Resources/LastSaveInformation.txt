@@ -1,1 +1,1 @@
-C:\Users\darkom3ga2552\Desktop\projectFiels\Task-Manager\Personal_Task_Manager\Resources\SavedDataFile.txt
+../../Resources/SavedDataFile.txt

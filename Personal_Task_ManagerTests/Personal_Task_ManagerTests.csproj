@@ -57,6 +57,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Managers\CSVManagerTests.cs" />
+    <Compile Include="Managers\FileManagerTests.cs" />
     <Compile Include="Managers\JsonManagerTests.cs" />
     <Compile Include="Managers\TextManagerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -69,6 +70,11 @@
       <Project>{D4746EAA-00F9-4DDD-A438-8004573CC109}</Project>
       <Name>Personal_Task_Manager</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Resources\LastSaveInformation.txt" />
+    <Content Include="Resources\testtext.txt" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
