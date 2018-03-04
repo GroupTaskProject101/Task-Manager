@@ -100,11 +100,13 @@ namespace Personal_Task_Manager.Managers
         /// <param name="aEndTime"></param>
         /// <param name="aAMPM"></param>
         /// <param name="aSelectedDate"></param>
-        public void CreateTask(string aName, string aDescription = "", string aGroup = "" , string aEndTime = "0:01 PM", bool? aAMPM = false, string aSelectedDate = "1/01/1999")
+        public static void CreateTask(string aName, string aDescription = "", string aGroup = "" , string aEndTime = "0:01 PM", bool? aAMPM = false, string aSelectedDate = "1/01/1999")
         {
             if (aName != string.Empty)
             {
                 TaskData aNewTask = new TaskData();
+                GroupData aNewData = new GroupData();
+
                 string tempAMPM = "";
 
                 aNewTask.Name = aName;
@@ -122,10 +124,10 @@ namespace Personal_Task_Manager.Managers
                 if (aGroup != "")
                 {
                     aNewTask.Group = aGroup;
-                    aNewTask.Group = aGroupData.Name = aGroup;
-                    aGroupData.TaskCount++;
+                    aNewTask.Group = aNewData.Name = aGroup;
+                    aNewData.TaskCount++;
 
-                    GroupData.aGroupCollection.Add(aGroupData);
+                    GroupData.aGroupCollection.Add(aNewData);
                 }
                 
                 aNewTask.TaskNo = TaskData.Count++;

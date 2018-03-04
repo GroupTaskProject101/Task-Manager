@@ -38,7 +38,6 @@ namespace Personal_Task_Manager
 
             TaskList.DataContext = TaskData.aTaskCollection;
 
-            ProgressSP.DataContext = TaskData.Count;
             SearchList.DataContext = TaskData.aFoundTaskCollection;
         }
 

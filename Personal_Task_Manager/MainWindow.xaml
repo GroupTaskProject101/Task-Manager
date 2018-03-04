@@ -209,19 +209,6 @@
                                 HorizontalAlignment="Right" 
                                 VerticalAlignment="Center"/>
                     </StackPanel>
-                    <StackPanel Name="ProgressSP" 
-                                Orientation="Horizontal"
-                                DataContext="{Binding}">
-                        <Label Content="Progress"/>
-                        <ProgressBar Name="ProgressBar" 
-                                     Minimum="0"
-                                     Maximum="{Binding}"
-                                     Value="3"
-                                     Width="430"
-                                     Height="10"
-                                     Margin="0,0,0,0" 
-                                     AutomationProperties.HelpText="Progress"/>
-                        </StackPanel>
                 </StackPanel>
             </TabItem>
             <TabItem Header="Search" 
