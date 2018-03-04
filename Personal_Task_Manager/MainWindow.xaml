@@ -56,7 +56,7 @@
                 </MenuItem>
                 <MenuItem Name="HelpMenu" 
                           Header="_Help">
-                    <MenuItem Name="Documentation" 
+                    <MenuItem Name="MenuDocumentation" 
                               Header="_Documentation"
                               Click="MenuDocumentation_Click"/>
                     <MenuItem Name="HelpfulLinks" 

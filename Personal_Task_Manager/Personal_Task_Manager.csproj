@@ -133,6 +133,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Resources\WK3_ User_Guide_Grp7_v2.docx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

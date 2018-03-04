@@ -5,6 +5,7 @@ using System.Windows.Threading;
 using System.Globalization;
 using System.Windows.Forms;
 using Personal_Task_Manager.Managers;
+
 using System.IO;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -105,7 +106,6 @@ namespace Personal_Task_Manager
             else if(CSVRB.IsChecked == true)
             {
                 aCSVManager.Save();
-
             }
         }
 
@@ -128,7 +128,7 @@ namespace Personal_Task_Manager
 
         private void MenuDocumentation_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
 
@@ -152,7 +152,6 @@ namespace Personal_Task_Manager
         private void MenuDelete_Click(object sender, RoutedEventArgs e)
         {
             var selectedItem = TaskList.SelectedItem != null? TaskList.SelectedItem: (SearchList.SelectedItem != null ? SearchList.SelectedItem : null);
-
 
             if (selectedItem != null)
             {
@@ -185,7 +184,6 @@ namespace Personal_Task_Manager
             else if (FileData.LastSaveLocation.EndsWith(".csv"))
             {
                 CSVRB.IsChecked = true;
-
             }
         }     
 
