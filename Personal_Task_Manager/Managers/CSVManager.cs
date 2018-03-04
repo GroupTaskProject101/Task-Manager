@@ -36,7 +36,8 @@ namespace Personal_Task_Manager.Managers
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.StackTrace);
+                throw e;
+
             }
         }
         public void Save()

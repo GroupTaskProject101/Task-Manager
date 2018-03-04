@@ -18,13 +18,6 @@ namespace Personal_Task_Manager
             AssignGroupCB.ItemsSource = GroupData.aGroupCollection;
         }
 
-        private void loadTaskFileBtn_Click_1(object sender, RoutedEventArgs e)
-        {
-            MultipleTaskWindow aMultipleTaskWindow = new MultipleTaskWindow();
-
-            aMultipleTaskWindow.ShowDialog();
-        }
-
         private void AddTask_Click(object sender, RoutedEventArgs e)
         {
             if (AssignGroupCB.SelectedIndex == -1)
