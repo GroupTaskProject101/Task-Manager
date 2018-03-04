@@ -56,12 +56,6 @@
                     <MenuItem Name="MenuDocumentation" 
                               Header="_Documentation"
                               Click="MenuDocumentation_Click"/>
-                    <MenuItem Name="HelpfulLinks" 
-                              Header="_Helpful Links"
-                              Click="MenuHelpfulLinks_Click"/>
-                    <MenuItem Name="VersionInformation" 
-                              Header="_Version Information"
-                              Click="MenuVersionInformation_Click"/>
                 </MenuItem>
             </Menu>
             <Separator Margin="0,0,0,10"/>

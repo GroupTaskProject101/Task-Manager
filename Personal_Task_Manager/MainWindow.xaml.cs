@@ -128,16 +128,6 @@ namespace Personal_Task_Manager
 
 
         //**********************Help Menu**********************
-        private void MenuVersionInformation_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void MenuHelpfulLinks_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void MenuDocumentation_Click(object sender, RoutedEventArgs e)
         {
             Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
