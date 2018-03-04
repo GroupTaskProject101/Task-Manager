@@ -15,6 +15,7 @@ namespace Personal_Task_Manager.Data
     {
         #region Fields
         private string name;
+        private string description;
         private int taskCount;
         private Guid groupGuid;
         public static ObservableCollection<GroupData> aGroupCollection = new ObservableCollection<GroupData>();
@@ -57,6 +58,19 @@ namespace Personal_Task_Manager.Data
             set
             {
                 taskCount = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Description
+        {
+            get
+            {
+                return description;
+            }
+            set
+            {
+                description = value;
                 OnPropertyChanged();
             }
         }
