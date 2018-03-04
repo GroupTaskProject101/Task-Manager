@@ -260,7 +260,6 @@
                     </StackPanel>
                     <Separator/>
                     <DataGrid Name="SearchList"
-
                               ItemsSource="{Binding}"
                               Width="465"
                               Background="White"

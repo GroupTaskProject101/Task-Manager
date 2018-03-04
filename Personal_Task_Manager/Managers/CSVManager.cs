@@ -8,6 +8,7 @@
 using CsvHelper;
 using Personal_Task_Manager.Data;
 using Personal_Task_Manager.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -22,6 +23,30 @@ namespace Personal_Task_Manager.Managers
         public override void ParseFile()
         {
             
+        }
+        public void Save()
+        {
+            try
+            {
+                if (FileData.SaveFileLocation != null && FileData.SaveFileLocation != "")
+                {
+                    if (!FileData.SaveFileLocation.EndsWith(".csv"))
+                    {
+                        File.Delete(FileData.SaveFileLocation);
+                        FileData.SaveFileLocation = FileData.SaveFileLocation.Substring(0, FileData.SaveFileLocation.LastIndexOf('.')) + ".csv";
+                        Save(FileData.SaveFileLocation);
+                    }
+                    StreamWriter writer = new StreamWriter(FileData.SaveFileLocation, false);
+                    CsvWriter csv = new CsvWriter(writer);
+                    csv.WriteRecords(TaskData.aTaskCollection);
+                    writer.Close();
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+            }
         }
     }
 }

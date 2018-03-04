@@ -100,7 +100,7 @@ namespace Personal_Task_Manager.Managers
         /// <param name="aEndTime"></param>
         /// <param name="aAMPM"></param>
         /// <param name="aSelectedDate"></param>
-        public void CreateTask(string aName, string aDescription = "", string aGroup = "" , string aEndTime = "0:01 PM", bool? aAMPM = false, string aSelectedDate = "1/01/1999")
+        public static void CreateTask(string aName, string aDescription = "", string aGroup = "" , string aEndTime = "0:01 PM", bool? aAMPM = false, string aSelectedDate = "1/01/1999")
         {
             if (aName != string.Empty)
             {
@@ -173,19 +173,19 @@ namespace Personal_Task_Manager.Managers
                     switch (aField)
                     {
                         case "Name":
-                            if (exp.IsMatch(nextTask.Name))
+                            if (exp.IsMatch(nextTask.Name!=null? nextTask.Name :""))
                             {
                                 tasksFound.Add(nextTask);
                             }
                             break;
                         case "Description":
-                            if (exp.IsMatch(nextTask.Description))
+                            if (exp.IsMatch(nextTask.Description != null ? nextTask.Description : ""))
                             {
                                 tasksFound.Add(nextTask);
                             }
                             break;
                         case "Group":
-                            if (exp.IsMatch(nextTask.Group))
+                            if (exp.IsMatch(nextTask.Group != null ? nextTask.Group : ""))
                             {
                                 tasksFound.Add(nextTask);
                             }

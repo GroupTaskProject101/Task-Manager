@@ -7,6 +7,7 @@
 using Newtonsoft.Json;
 using Personal_Task_Manager.Data;
 using Personal_Task_Manager.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -22,5 +23,32 @@ namespace Personal_Task_Manager.Managers
         {
             
         }
+
+        public void Save()
+        {
+            try
+            {
+                if (FileData.SaveFileLocation != null && FileData.SaveFileLocation != "")
+                {
+                    if (!FileData.SaveFileLocation.EndsWith(".json"))
+                    {
+                        File.Delete(FileData.SaveFileLocation);
+                        FileData.SaveFileLocation = FileData.SaveFileLocation.Substring(0, FileData.SaveFileLocation.LastIndexOf('.')) + ".json";
+                        Save(FileData.SaveFileLocation);
+                    }
+                    StreamWriter writer = new StreamWriter(FileData.SaveFileLocation, false);
+                    string output = JsonConvert.SerializeObject(TaskData.aTaskCollection);
+                    writer.WriteLine(output);
+                    writer.Close();
+                }
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+            }
+        }
     }
+
+
 }

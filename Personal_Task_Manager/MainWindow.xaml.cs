@@ -40,6 +40,20 @@ namespace Personal_Task_Manager
 
             ProgressSP.DataContext = TaskData.Count;
             SearchList.DataContext = TaskData.aFoundTaskCollection;
+            if (FileData.LastSaveLocation.EndsWith(".txt"))
+            {
+                TextRB.IsChecked = true;
+            }
+            else if (FileData.LastSaveLocation.EndsWith(".json"))
+            {
+                JsonRB.IsChecked = true;
+            }
+            else if (FileData.LastSaveLocation.EndsWith(".csv"))
+            {
+                CSVRB.IsChecked = true;
+
+            }
+
         }
 
         private void InitializeTimingLoop()
@@ -87,7 +101,19 @@ namespace Personal_Task_Manager
 
         private void MenuSave_Click(object sender, RoutedEventArgs e)
         {
+            if(TextRB.IsChecked ==true)
+            {
+                aTextManager.Save();
+            }
+            else if(JsonRB.IsChecked == true)
+            {
+                aJsonManager.Save();
+            }
+            else if(CSVRB.IsChecked == true)
+            {
+                aCSVManager.Save();
 
+            }
         }
 
         private void MenuExit_Click(object sender, RoutedEventArgs e)
@@ -139,10 +165,12 @@ namespace Personal_Task_Manager
         //**********************Edit Menu**********************
         private void MenuDelete_Click(object sender, RoutedEventArgs e)
         {
-            var selectedItem = SearchList.SelectedItem;
+            var selectedItem = TaskList.SelectedItem != null? TaskList.SelectedItem: (SearchList.SelectedItem != null ? SearchList.SelectedItem : null);
+
 
             if (selectedItem != null)
             {
+                TaskData.aTaskCollection.Remove((TaskData)selectedItem);
                 TaskData.aFoundTaskCollection.Remove((TaskData)selectedItem);     
             }
         }

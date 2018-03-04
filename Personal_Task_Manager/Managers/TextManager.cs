@@ -52,22 +52,39 @@ namespace Personal_Task_Manager.Managers
                     foreach (string item in items)
                     {
                         string[] tempItems = item.Split(',');
-                        TaskData aTaskData = new TaskData();
-                        GroupData aGroupData = new GroupData();
-
-                        aTaskData.TaskNo = TaskData.Count++;
-                        aTaskData.StartDate = DateTime.Parse(tempItems[0]);
-                        aTaskData.EndDate = DateTime.Parse(tempItems[1]);
-                        aTaskData.Name = tempItems[2];
-                        aTaskData.Description = tempItems[3];
-                        aTaskData.Group = aGroupData.Name = tempItems[4];
-                        aGroupData.TaskCount++;
-
-                        TaskData.aTaskCollection.Add(aTaskData);
-                        GroupData.aGroupCollection.Add(aGroupData);
+                        string[] time =  tempItems[0].Split(' ');
+                        TaskManager.CreateTask(tempItems[1], tempItems[2], tempItems[3],time[1].Substring(0, time[1].LastIndexOf(':')) +" "+time[2] , false, time[0]);
                     }
                 }
                 reader.Close();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+
+        public void Save()
+        {
+            try
+            {
+                if (FileData.SaveFileLocation != null && FileData.SaveFileLocation != ""  )
+                {
+                    if(!FileData.SaveFileLocation.EndsWith(".txt"))
+                    {
+                            File.Delete(FileData.SaveFileLocation);
+                            FileData.SaveFileLocation = FileData.SaveFileLocation.Substring(0, FileData.SaveFileLocation.LastIndexOf('.')) + ".txt";
+                            Save(FileData.SaveFileLocation);
+                    }
+                    StreamWriter writer = new StreamWriter(FileData.SaveFileLocation, false);
+                    foreach(TaskData nextTask in TaskData.aTaskCollection)
+                    {
+                        string nextLine = nextTask.EndDate.ToString() + "," + nextTask.Name + "," + nextTask.Description + "," + nextTask.Group + " $";
+                        writer.WriteLine(nextLine);
+                    }
+                    writer.Close();
+                } 
+
             }
             catch (Exception e)
             {
