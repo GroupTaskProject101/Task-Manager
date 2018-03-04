@@ -1,21 +1,19 @@
-﻿using System;
-using System.Windows;
+﻿using Microsoft.Office.Interop.Word;
 using Personal_Task_Manager.Data;
-using System.Windows.Threading;
-using System.Globalization;
-using System.Windows.Forms;
 using Personal_Task_Manager.Managers;
-
+using System;
+using System.Globalization;
 using System.IO;
-using System.Windows.Controls;
-using System.Windows.Input;
+using System.Windows;
+using System.Windows.Forms;
+using System.Windows.Threading;
 
 namespace Personal_Task_Manager
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : System.Windows.Window
     {
         public TaskManager aTaskManager = new TaskManager();
         public TextManager aTextManager = new TextManager();
@@ -136,7 +134,8 @@ namespace Personal_Task_Manager
 
         private void MenuDocumentation_Click(object sender, RoutedEventArgs e)
         {
-            
+            Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
+            Document document = ap.Documents.Open((System.IO.Path.GetFullPath(@"..\..\Resources\") + "WK3_ User_Guide_Grp7_v2.docx"));
         }
 
 
