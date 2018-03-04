@@ -49,15 +49,6 @@ namespace Personal_Task_Manager.Managers
         }
 
         /// <summary>
-        /// Loads in tasks from the specified file location
-        /// </summary>
-        /// <param name="aFilePath"></param>
-        public void Load(string aFilePath)
-        {
-            // TODO Implement load file logic
-        }
-
-        /// <summary>
         /// Loads the last save location and values
         /// </summary>
         public static string LoadLastSave()

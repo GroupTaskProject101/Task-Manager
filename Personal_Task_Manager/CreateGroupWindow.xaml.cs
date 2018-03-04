@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using Personal_Task_Manager.Data;
+using System.Windows;
+using System;
 
 namespace Personal_Task_Manager
 {
@@ -13,6 +15,23 @@ namespace Personal_Task_Manager
         public CreateGroupWindow()
         {
             InitializeComponent();
+        }
+
+        private void AddGroupBtn_Click(object sender, RoutedEventArgs e)
+        {
+            GroupData aGroupData = new GroupData();
+
+            aGroupData.Name = GroupNameTb.Text;
+            aGroupData.Description = GroupDescriptionTb.Text;
+            aGroupData.GroupGuid = Guid.NewGuid();
+            aGroupData.TaskCount = aGroupData.TaskCount++;
+
+            if (GroupNameTb.Text != "")
+            {
+                GroupData.aGroupCollection.Add(aGroupData);
+            }
+
+            this.Close();
         }
     }
 }

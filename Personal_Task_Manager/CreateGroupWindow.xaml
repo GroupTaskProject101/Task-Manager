@@ -16,7 +16,8 @@
                     <StackPanel Orientation="Vertical">
                         <StackPanel Orientation="Horizontal">
                             <Label Content="Name"/>
-                            <TextBox Text="Enter Group Name" 
+                            <TextBox Name="GroupNameTb"
+                                     Text="Enter Group Name" 
                                      Width="240"
                                      Height="20" 
                                      FontWeight="Normal"/>
@@ -25,17 +26,19 @@
                         <StackPanel Orientation="Vertical">
                             <Label Content="Description" 
                                    FontWeight="Bold"/>
-                            <TextBox Text="Enter Group Description" 
+                            <TextBox Name="GroupDescriptionTb" 
+                                     Text="Enter Group Description" 
                                      Width="280"
                                      Height="110" 
                                      FontWeight="Normal"/>
                         </StackPanel>
                         <Separator/>
                         <StackPanel Orientation="Horizontal">
-                            <Button Content="Add Group"
+                            <Button Name="AddGroupBtn"
+                                    Content="Add Group"
                                     Width=" 280"
                                     Height="20"
-                                    Margin="0,5,0,2"/>
+                                    Margin="0,5,0,2" Click="AddGroupBtn_Click"/>
                         </StackPanel>
                     </StackPanel>
                 </GroupBox>

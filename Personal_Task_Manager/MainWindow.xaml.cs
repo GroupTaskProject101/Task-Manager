@@ -36,9 +36,6 @@ namespace Personal_Task_Manager
             TaskList.DataContext = TaskData.aTaskCollection;
 
             SearchList.DataContext = TaskData.aFoundTaskCollection;
-
-
-
         }
 
         private void InitializeTimingLoop()
