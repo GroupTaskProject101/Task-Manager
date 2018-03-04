@@ -85,6 +85,7 @@ namespace Personal_Task_Manager
         //**********************File Menu**********************
         private void MenuOpen_Click(object sender, RoutedEventArgs e)
         {
+            try { 
             if (TextRB.IsChecked == true)
             {
                 aTextManager.ParseFile();
@@ -96,6 +97,11 @@ namespace Personal_Task_Manager
             else if (CSVRB.IsChecked == true)
             {
                 aCSVManager.ParseFile();
+            }
+            }
+            catch (Exception)
+            {
+                System.Windows.Forms.MessageBox.Show("Invalid save file, try changing default location or creating a new one.", "ERROR",MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -140,13 +146,6 @@ namespace Personal_Task_Manager
 
 
         //**********************View Menu**********************
-        private void MenuMultipletaskWindow_Click(object sender, RoutedEventArgs e)
-        {
-            MultipleTaskWindow aMultipleTaskWindow = new MultipleTaskWindow();
-
-            aMultipleTaskWindow.ShowDialog();
-        }
-
         private void MenuGroupWindow_Click(object sender, RoutedEventArgs e)
         {
             CreateGroupWindow createGroupWindow = new CreateGroupWindow();
