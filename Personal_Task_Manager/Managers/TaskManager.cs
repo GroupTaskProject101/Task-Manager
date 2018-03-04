@@ -90,7 +90,7 @@ namespace Personal_Task_Manager.Managers
         /// <param name="aEndTime"></param>
         /// <param name="aAMPM"></param>
         /// <param name="aSelectedDate"></param>
-        public static void CreateTask(string aName, string aDescription = "", string aGroup = "" , string aEndTime = "0:01", bool? aAMPM = false, string aSelectedDate = "1/01/1999")
+        public static void CreateTask(string aName, string aDescription = "", string aGroup = "" , string aEndTime = "0:01", bool? aAMPM = false, string aSelectedDate = "1/01/1999", bool complete=false)
         {
             if (aName != string.Empty)
             {
@@ -121,7 +121,7 @@ namespace Personal_Task_Manager.Managers
                 }
                 
                 aNewTask.TaskNo = TaskData.Count++;
-
+                aNewTask.Completed = complete;
                 TaskData.aTaskCollection.Add(aNewTask);              
             }         
         }

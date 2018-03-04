@@ -4,11 +4,9 @@
 // File: TextManager.cs
 // Date: 2/10/2018
 //Input file format
-//#Fields: Date,startTime,endTime,name,description,group
-//#End of line character: $
-//2017/1/27,1400,1500,sample name,sample description,samples $
-//2017/1/30,1600,1700,Lifting,Working on my gains,exercise $
-//2017/1/31,1400,1500,Work,Got to make money,weekly issues $
+//1/1/0001 12:00:00 AM,Enter Task Name,Enter Task Description, $
+//1/1/0001 12:00:00 AM,qweqweq,Enter Task Description, $
+
 
 using Personal_Task_Manager.Data;
 using Personal_Task_Manager.Interfaces;
@@ -53,7 +51,7 @@ namespace Personal_Task_Manager.Managers
                     {
                         string[] tempItems = item.Split(',');
                         string[] time =  tempItems[0].Split(' ');
-                        TaskManager.CreateTask(tempItems[1], tempItems[2], tempItems[3],time[1].Substring(0, time[1].LastIndexOf(':')) , time[2].Equals("AM")?true:false, time[0]);
+                        TaskManager.CreateTask(tempItems[1], tempItems[2], tempItems[3],time[1].Substring(0, time[1].LastIndexOf(':')) , time[2].Equals("AM")?true:false, time[0],bool.Parse(tempItems[4]));
                     }
                 }
                 reader.Close();
@@ -79,7 +77,7 @@ namespace Personal_Task_Manager.Managers
                     StreamWriter writer = new StreamWriter(FileData.SaveFileLocation, false);
                     foreach(TaskData nextTask in TaskData.aTaskCollection)
                     {
-                        string nextLine = nextTask.EndDate.ToString() + "," + nextTask.Name + "," + nextTask.Description + "," + nextTask.Group + " $";
+                        string nextLine = nextTask.EndDate.ToString() + "," + nextTask.Name + "," + nextTask.Description + "," + nextTask.Group+","+ nextTask.Completed + " $";
                         writer.WriteLine(nextLine);
                     }
                     writer.Close();
