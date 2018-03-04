@@ -50,9 +50,6 @@
                     <MenuItem Name="MultipletaskWindow" 
                               Header="_Multiple Task Window"
                               Click="MenuMultipletaskWindow_Click"/>
-                    <MenuItem Name="EditTaskWindow" 
-                              Header="_Edit Task Window"
-                              Click="MenuEditTaskWindow_Click"/>
                     <MenuItem Name="GroupWindow" 
                               Header="_Group Window"
                               Click="MenuGroupWindow_Click"/>

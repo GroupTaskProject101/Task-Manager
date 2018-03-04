@@ -23,7 +23,6 @@ namespace Personal_Task_Manager.Data
         private bool completed;
         private bool isChecked;
 
-        private DateTime startDate;
         private DateTime endDate;
         private Guid taskGuid;
         
@@ -75,18 +74,7 @@ namespace Personal_Task_Manager.Data
             }
         }
 
-        public DateTime StartDate
-        {
-            get
-            {
-                return startDate;
-            }
-            set
-            {
-                startDate = value;
-                OnPropertyChanged();
-            }
-        }
+
 
         public DateTime EndDate
         {

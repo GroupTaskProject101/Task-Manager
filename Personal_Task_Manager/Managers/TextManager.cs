@@ -53,7 +53,7 @@ namespace Personal_Task_Manager.Managers
                     {
                         string[] tempItems = item.Split(',');
                         string[] time =  tempItems[0].Split(' ');
-                        TaskManager.CreateTask(tempItems[1], tempItems[2], tempItems[3],time[1].Substring(0, time[1].LastIndexOf(':')) +" "+time[2] , false, time[0]);
+                        TaskManager.CreateTask(tempItems[1], tempItems[2], tempItems[3],time[1].Substring(0, time[1].LastIndexOf(':')) , time[2].Equals("AM")?true:false, time[0]);
                     }
                 }
                 reader.Close();

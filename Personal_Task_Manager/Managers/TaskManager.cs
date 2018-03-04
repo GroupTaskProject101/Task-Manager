@@ -29,12 +29,6 @@ namespace Personal_Task_Manager.Managers
         /// <param name="aName"></param>
         public void SetName(string aName) => aTaskData.Name = aName;
 
-        /// <summary>
-        /// Sets the starting time to be used by the task
-        /// </summary>
-
-        /// <param name="aDate"></param>
-        public void SetStartDate(DateTime aDate) => aTaskData.StartDate = aDate;
 
         /// <summary>
         /// Sets the ending time to be used by the task
@@ -76,11 +70,7 @@ namespace Personal_Task_Manager.Managers
         /// <returns>string</returns>
         public string GetDescription() => aTaskData.Description;
 
-        /// <summary>
-        /// Returns the starting time of the task
-        /// </summary>
-        /// <returns>DateTime</returns>
-        public DateTime GetStartTime() => aTaskData.StartDate;
+
 
         /// <summary>
         /// Returns the ending time of the task
@@ -100,7 +90,7 @@ namespace Personal_Task_Manager.Managers
         /// <param name="aEndTime"></param>
         /// <param name="aAMPM"></param>
         /// <param name="aSelectedDate"></param>
-        public static void CreateTask(string aName, string aDescription = "", string aGroup = "" , string aEndTime = "0:01 PM", bool? aAMPM = false, string aSelectedDate = "1/01/1999")
+        public static void CreateTask(string aName, string aDescription = "", string aGroup = "" , string aEndTime = "0:01", bool? aAMPM = false, string aSelectedDate = "1/01/1999")
         {
             if (aName != string.Empty)
             {

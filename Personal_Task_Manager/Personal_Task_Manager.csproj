@@ -72,10 +72,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="EditTaskWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -90,9 +86,6 @@
     <Compile Include="Data\FileData.cs" />
     <Compile Include="Data\GroupData.cs" />
     <Compile Include="Data\IObservableCollection.cs" />
-    <Compile Include="EditTaskWindow.xaml.cs">
-      <DependentUpon>EditTaskWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Interfaces\IParsable.cs" />
     <Compile Include="Interfaces\ITransferable.cs" />
     <Compile Include="Managers\CSVManager.cs" />

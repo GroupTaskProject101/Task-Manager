@@ -39,6 +39,7 @@ namespace Personal_Task_Manager
             TaskList.DataContext = TaskData.aTaskCollection;
 
             SearchList.DataContext = TaskData.aFoundTaskCollection;
+
             if (FileData.LastSaveLocation.EndsWith(".txt"))
             {
                 TextRB.IsChecked = true;
@@ -144,13 +145,6 @@ namespace Personal_Task_Manager
             MultipleTaskWindow aMultipleTaskWindow = new MultipleTaskWindow();
 
             aMultipleTaskWindow.ShowDialog();
-        }
-
-        private void MenuEditTaskWindow_Click(object sender, RoutedEventArgs e)
-        {
-            EditTaskWindow aEditTaskWindow = new EditTaskWindow();
-
-            aEditTaskWindow.ShowDialog();
         }
 
         private void MenuGroupWindow_Click(object sender, RoutedEventArgs e)
