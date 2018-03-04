@@ -163,9 +163,9 @@
                                       AutoGenerateColumns="False"
                                       IsReadOnly="False">
                                 <DataGrid.Columns>
-                                    <DataGridCheckBoxColumn Header=""
+                                    <DataGridCheckBoxColumn Header="Complete"
                                                             Width="Auto"
-                                                            Binding="{Binding IsChecked, Mode=TwoWay}"/>
+                                                            Binding="{Binding Completed, Mode=TwoWay}"/>
                                     <DataGridTextColumn Header="TaskNo" 
                                                         Width="Auto"
                                                         Binding="{Binding TaskNo, Mode=TwoWay}"/>
@@ -253,9 +253,9 @@
                               IsReadOnly="False"
                               SelectionMode="Single">
                         <DataGrid.Columns>
-                            <DataGridCheckBoxColumn Header=""
+                            <DataGridCheckBoxColumn Header="Complete"
                                                     Width="Auto"
-                                                    Binding="{Binding IsChecked, Mode=TwoWay}"/>
+                                                    Binding="{Binding Completed, Mode=TwoWay}"/>
                             <DataGridTextColumn Header="TaskNo" 
                                                         Width="1*"
                                                         Binding="{Binding TaskNo, Mode=TwoWay}"/>
