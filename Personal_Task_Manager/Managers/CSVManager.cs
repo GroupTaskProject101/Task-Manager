@@ -22,7 +22,22 @@ namespace Personal_Task_Manager.Managers
         /// <returns></returns>
         public override void ParseFile()
         {
-            
+
+            try
+            {
+                StreamReader reader = File.OpenText(FileManager.LoadLastSave());
+                CsvReader csv = new CsvReader(reader);
+                IEnumerable<TaskData> tasks = csv.GetRecords<TaskData>();
+
+                foreach (TaskData nextTask in tasks)
+                {
+                    TaskData.aTaskCollection.Add(nextTask);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+            }
         }
         public void Save()
         {

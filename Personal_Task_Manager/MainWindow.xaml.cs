@@ -31,28 +31,13 @@ namespace Personal_Task_Manager
             InitializeClock();
             InitializeTimingLoop();
 
-            //Todo Make this called only on load and Save State
-            aTextManager.ParseFile();
-
             DataContext = aTaskData;
 
             TaskList.DataContext = TaskData.aTaskCollection;
 
             SearchList.DataContext = TaskData.aFoundTaskCollection;
 
-            if (FileData.LastSaveLocation.EndsWith(".txt"))
-            {
-                TextRB.IsChecked = true;
-            }
-            else if (FileData.LastSaveLocation.EndsWith(".json"))
-            {
-                JsonRB.IsChecked = true;
-            }
-            else if (FileData.LastSaveLocation.EndsWith(".csv"))
-            {
-                CSVRB.IsChecked = true;
 
-            }
 
         }
 
@@ -96,7 +81,18 @@ namespace Personal_Task_Manager
         //**********************File Menu**********************
         private void MenuOpen_Click(object sender, RoutedEventArgs e)
         {
-
+            if (TextRB.IsChecked == true)
+            {
+                aTextManager.ParseFile();
+            }
+            else if (JsonRB.IsChecked == true)
+            {
+                aJsonManager.ParseFile();
+            }
+            else if (CSVRB.IsChecked == true)
+            {
+                aCSVManager.ParseFile();
+            }
         }
 
         private void MenuSave_Click(object sender, RoutedEventArgs e)
@@ -180,6 +176,19 @@ namespace Personal_Task_Manager
             if (FileData.LastSaveLocation != "")
             {
                 SavePath.Text = FileData.LastSaveLocation;
+            }
+            if (FileData.LastSaveLocation.EndsWith(".txt"))
+            {
+                TextRB.IsChecked = true;
+            }
+            else if (FileData.LastSaveLocation.EndsWith(".json"))
+            {
+                JsonRB.IsChecked = true;
+            }
+            else if (FileData.LastSaveLocation.EndsWith(".csv"))
+            {
+                CSVRB.IsChecked = true;
+
             }
         }     
 

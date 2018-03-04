@@ -21,8 +21,23 @@ namespace Personal_Task_Manager.Managers
         /// <returns></returns>
         public override void ParseFile()
         {
-            
+            try
+            {
+                StreamReader reader = File.OpenText(FileManager.LoadLastSave());
+
+                List<TaskData> tasks = JsonConvert.DeserializeObject<List<TaskData>>(reader.ReadToEnd());
+
+                foreach (TaskData nextTask in tasks)
+                {
+                    TaskData.aTaskCollection.Add(nextTask);
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+            }
         }
+    
 
         public void Save()
         {
