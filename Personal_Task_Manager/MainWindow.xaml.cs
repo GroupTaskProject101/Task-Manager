@@ -57,7 +57,15 @@ namespace Personal_Task_Manager
 
         void timer_Tick(object sender, EventArgs e)
         {
-
+            int daily = 0;
+            foreach(TaskData nextTask in TaskData.aTaskCollection)
+            {
+                if(nextTask.EndDate.Date == DateTime.Today)
+                {
+                    daily++;
+                }
+            }
+            DailyTaskTB.Text = daily.ToString();
         }
 
         private void createTaskBtn_Click(object sender, RoutedEventArgs e)
@@ -260,5 +268,7 @@ namespace Personal_Task_Manager
                 }
             }          
         }
+
+
     }
 }
