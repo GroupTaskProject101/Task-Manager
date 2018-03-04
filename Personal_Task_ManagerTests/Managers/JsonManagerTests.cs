@@ -12,6 +12,18 @@ namespace Personal_Task_Manager.Managers.Tests
     [TestClass()]
     public class JsonManagerTests
     {
-        
+        [TestMethod()]
+        public void ParseFile_ReadInName_AddsValueToCollection()
+        {
+            JsonManager manager = new JsonManager();
+            TaskManager.CreateTask("TestTask");
+            FileData.SaveFileLocation = FileData.SaveFileLocation = @"../../Resources/testjson.json";
+            manager.ParseFile();
+
+            string expectedName = "TestTask";
+            string actualName = TaskData.aTaskCollection[0].Name;
+
+            Assert.AreEqual(expectedName, actualName);
+        }
     }
 }

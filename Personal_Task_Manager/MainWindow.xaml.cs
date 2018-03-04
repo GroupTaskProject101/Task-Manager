@@ -65,6 +65,7 @@ namespace Personal_Task_Manager
                 }
             }
             DailyTaskTB.Text = daily.ToString();
+            TotalTaskTB.Text = TaskData.aTaskCollection.Count.ToString();
         }
 
         private void createTaskBtn_Click(object sender, RoutedEventArgs e)
@@ -148,11 +149,17 @@ namespace Personal_Task_Manager
         private void MenuDelete_Click(object sender, RoutedEventArgs e)
         {
             var selectedItem = TaskList.SelectedItem != null? TaskList.SelectedItem: (SearchList.SelectedItem != null ? SearchList.SelectedItem : null);
-
-            if (selectedItem != null)
+            try
             {
-                TaskData.aTaskCollection.Remove((TaskData)selectedItem);
-                TaskData.aFoundTaskCollection.Remove((TaskData)selectedItem);     
+                if (selectedItem != null)
+                {
+                    TaskData.aTaskCollection.Remove((TaskData)selectedItem);
+                    TaskData.aFoundTaskCollection.Remove((TaskData)selectedItem);
+                }
+            }
+            catch
+            {
+                //Ignore a failed delete
             }
         }
 

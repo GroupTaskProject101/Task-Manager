@@ -25,7 +25,7 @@ namespace Personal_Task_Manager.Managers
 
             try
             {
-                StreamReader reader = File.OpenText(FileManager.LoadLastSave());
+                StreamReader reader = File.OpenText(FileData.SaveFileLocation);
                 CsvReader csv = new CsvReader(reader);
                 IEnumerable<TaskData> tasks = csv.GetRecords<TaskData>();
 

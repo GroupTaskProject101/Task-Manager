@@ -23,7 +23,7 @@ namespace Personal_Task_Manager.Managers
         {
             try
             {
-                StreamReader reader = File.OpenText(FileManager.LoadLastSave());
+                StreamReader reader = File.OpenText(FileData.SaveFileLocation);
 
                 List<TaskData> tasks = JsonConvert.DeserializeObject<List<TaskData>>(reader.ReadToEnd());
 
