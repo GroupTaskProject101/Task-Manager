@@ -14,22 +14,13 @@ namespace Personal_Task_Manager.Managers
 {
     public class JsonManager : FileManager, IParsable
     {
-
-        private List<TaskData> taskCollection = new List<TaskData>();
-
-        public List<TaskData> TaskCollection { get => taskCollection; set => taskCollection = value; }
-
         /// <summary>
         /// Specifies how to parse a Json file
         /// </summary>
         /// <returns></returns>
         public override void ParseFile()
         {
-            using (StreamReader file = new StreamReader("C:\\Users\\Dominic\\Desktop\\testFile.json"))
-            {
-                string json = file.ReadToEnd();
-                taskCollection = JsonConvert.DeserializeObject<List<TaskData>>(json);
-            }
+            
         }
     }
 }

@@ -19,6 +19,9 @@ namespace Personal_Task_Manager
     /// </summary>
     public partial class EditTaskWindow : Window
     {
+        /// <summary>
+        /// Constructor for Edit Task Window
+        /// </summary>
         public EditTaskWindow()
         {
             InitializeComponent();

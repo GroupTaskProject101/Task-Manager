@@ -22,11 +22,6 @@ namespace Personal_Task_Manager.Managers
         #endregion
 
 
-        #region Contructors
-
-        #endregion
-
-
         #region Setters
         /// <summary>
         /// Sets the name of the Task with the supplied value
@@ -97,12 +92,13 @@ namespace Personal_Task_Manager.Managers
 
         #region Methods
         /// <summary>
-        /// 
+        /// Creates a new task
         /// </summary>
         /// <param name="aName"></param>
         /// <param name="aDescription"></param>
         /// <param name="aGroup"></param>
         /// <param name="aEndTime"></param>
+        /// <param name="aAMPM"></param>
         /// <param name="aSelectedDate"></param>
         public void CreateTask(string aName, string aDescription = "", string aGroup = "" , string aEndTime = "0:01 PM", bool? aAMPM = false, string aSelectedDate = "1/01/1999")
         {
@@ -205,6 +201,11 @@ namespace Personal_Task_Manager.Managers
 
         }
 
+        /// <summary>
+        /// Search for task with Guid
+        /// </summary>
+        /// <param name="aGUID"></param>
+        /// <returns></returns>
         public TaskData SearchTasks(Guid aGUID)
         {
             foreach (TaskData nextTask in TaskData.aTaskCollection)
@@ -224,7 +225,6 @@ namespace Personal_Task_Manager.Managers
         /// <param name="aTaskData"></param>
         public void CompleteTask(TaskData aTaskData)
         {
-
             aTaskData.Completed = false;
 
             TaskData.aCompletedTaskGroup.Add(aTaskData);
@@ -233,11 +233,9 @@ namespace Personal_Task_Manager.Managers
         /// <summary>
         /// Generates and returns a GUID
         /// </summary>
-
         /// <returns></returns>
         public Guid CreateGUID()
         {
-
             Guid temp = Guid.NewGuid();
 
             return temp;

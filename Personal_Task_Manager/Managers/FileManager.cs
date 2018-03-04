@@ -17,19 +17,6 @@ namespace Personal_Task_Manager.Managers
         FileData aFileData = new FileData();
         #endregion
 
-
-        #region Constructors
-        #endregion
-
-
-        #region Setters
-        #endregion
-
-
-        #region Getters
-        #endregion
-
-
         #region Methods
         /// <summary>
         /// Saves all tasks inside the task collection to the specified output file

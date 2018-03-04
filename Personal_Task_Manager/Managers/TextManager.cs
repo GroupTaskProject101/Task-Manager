@@ -4,11 +4,11 @@
 // File: TextManager.cs
 // Date: 2/10/2018
 //Input file format
-//#Fields: Date, startTime, endTime, "name", "description","group"
+//#Fields: Date,startTime,endTime,name,description,group
 //#End of line character: $
-//2017/1/27,1400,1500,"sample name", "sample description", "samples" $
-//2017/1/30,1600,1700,"Lifting", "Working on my gains","exercise" $
-//2017/1/31,1400,1500,"Work", "Got to make money", "weekly issues" $
+//2017/1/27,1400,1500,sample name,sample description,samples $
+//2017/1/30,1600,1700,Lifting,Working on my gains,exercise $
+//2017/1/31,1400,1500,Work,Got to make money,weekly issues $
 
 using Personal_Task_Manager.Data;
 using Personal_Task_Manager.Interfaces;

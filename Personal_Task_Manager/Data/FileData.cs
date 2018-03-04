@@ -57,13 +57,8 @@ namespace Personal_Task_Manager.Data
         #endregion
 
 
-        #region Methods
-        
-        #endregion
-
-
-    #region Events
-    public event PropertyChangedEventHandler PropertyChanged;
+        #region Events
+        public event PropertyChangedEventHandler PropertyChanged;
         #endregion
 
 

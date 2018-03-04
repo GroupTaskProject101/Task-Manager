@@ -137,11 +137,6 @@ namespace Personal_Task_Manager
 
 
         //**********************Edit Menu**********************
-        private void MenuEdit_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
         private void MenuDelete_Click(object sender, RoutedEventArgs e)
         {
             var selectedItem = SearchList.SelectedItem;
@@ -209,26 +204,6 @@ namespace Personal_Task_Manager
         private void TextRB_Checked(object sender, RoutedEventArgs e)
         {
             FileData.FileFormat = "Text";
-        }
-
-        private void NotificationOn_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void NotificationOff_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void GroupDeletionEnabled_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void GroupDeletionDisabled_Checked(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void SearchElement_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
