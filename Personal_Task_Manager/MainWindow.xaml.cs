@@ -65,6 +65,7 @@ namespace Personal_Task_Manager
                 }
             }
             DailyTaskTB.Text = daily.ToString();
+            TotalTaskTB.Text = TaskData.aTaskCollection.Count.ToString();
         }
 
         private void createTaskBtn_Click(object sender, RoutedEventArgs e)
