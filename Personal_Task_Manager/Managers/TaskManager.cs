@@ -105,6 +105,8 @@ namespace Personal_Task_Manager.Managers
             if (aName != string.Empty)
             {
                 TaskData aNewTask = new TaskData();
+                GroupData aNewData = new GroupData();
+
                 string tempAMPM = "";
 
                 aNewTask.Name = aName;
@@ -122,10 +124,10 @@ namespace Personal_Task_Manager.Managers
                 if (aGroup != "")
                 {
                     aNewTask.Group = aGroup;
-                    aNewTask.Group = aGroupData.Name = aGroup;
-                    aGroupData.TaskCount++;
+                    aNewTask.Group = aNewData.Name = aGroup;
+                    aNewData.TaskCount++;
 
-                    GroupData.aGroupCollection.Add(aGroupData);
+                    GroupData.aGroupCollection.Add(aNewData);
                 }
                 
                 aNewTask.TaskNo = TaskData.Count++;
