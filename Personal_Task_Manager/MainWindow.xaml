@@ -29,7 +29,7 @@
                 <MenuItem Name="FileMenu" 
                           Header="_File">
                     <MenuItem Name="OpenMenu"
-                              Header="_Open"
+                              Header="_Load"
                               Click="MenuOpen_Click"/>
                     <MenuItem Name="SaveMenu"
                               Header="_Save"
@@ -157,9 +157,6 @@
                                     <DataGridCheckBoxColumn Header="Complete"
                                                             Width="Auto"
                                                             Binding="{Binding Completed, Mode=TwoWay}"/>
-                                    <DataGridTextColumn Header="TaskNo" 
-                                                        Width="Auto"
-                                                        Binding="{Binding TaskNo, Mode=TwoWay}"/>
                                     <DataGridTextColumn Header="Name" 
                                                         Width="Auto"
                                                         Binding="{Binding Name, Mode=TwoWay}"/>
@@ -247,9 +244,6 @@
                             <DataGridCheckBoxColumn Header="Complete"
                                                     Width="Auto"
                                                     Binding="{Binding Completed, Mode=TwoWay}"/>
-                            <DataGridTextColumn Header="TaskNo" 
-                                                        Width="1*"
-                                                        Binding="{Binding TaskNo, Mode=TwoWay}"/>
                             <DataGridTextColumn Header="Name" 
                                                         Width="1*"
                                                         Binding="{Binding Name, Mode=TwoWay}"/>
