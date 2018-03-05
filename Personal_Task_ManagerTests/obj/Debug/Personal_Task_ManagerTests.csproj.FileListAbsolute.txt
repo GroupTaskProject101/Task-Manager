@@ -59,3 +59,4 @@ C:\Users\darkom3ga2552\Desktop\projectFiels\Task-Manager\Personal_Task_ManagerTe
 C:\Users\darkom3ga2552\Desktop\projectFiels\Task-Manager\Personal_Task_ManagerTests\obj\Debug\Personal_Task_ManagerTests.dll
 C:\Users\darkom3ga2552\Desktop\projectFiels\Task-Manager\Personal_Task_ManagerTests\obj\Debug\Personal_Task_ManagerTests.pdb
 C:\Users\darkom3ga2552\Desktop\projectFiels\Task-Manager\Personal_Task_ManagerTests\obj\Debug\Personal_Task_ManagerTests.g.resources
+C:\Users\Zac\Documents\Visual Studio 2017\Projects\Personal_Task_Manager\Personal_Task_ManagerTests\obj\Debug\Personal_Task_ManagerTests.g.resources

@@ -17,7 +17,7 @@ namespace Personal_Task_Manager.Managers.Tests
         {
             JsonManager manager = new JsonManager();
             TaskManager.CreateTask("TestTask");
-            FileData.SaveFileLocation = FileData.SaveFileLocation = @"../../Resources/testjson.json";
+            FileData.SaveFileLocation = @"../../Resources/testjson.json";
             manager.ParseFile();
 
             string expectedName = "TestTask";
