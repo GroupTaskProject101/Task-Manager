@@ -67,6 +67,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Resources\testcsv.csv" />
+    <None Include="Resources\testjson.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Personal_Task_Manager\Personal_Task_Manager.csproj">

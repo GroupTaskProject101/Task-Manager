@@ -16,11 +16,10 @@ namespace Personal_Task_Manager.Managers.Tests
         public void ParseFile_ReadInName_AddsValueToCollection()
         {
             CSVManager manager = new CSVManager();
-            TaskManager.CreateTask("TestTask");
             FileData.SaveFileLocation = @"../../Resources/testcsv.csv";
             manager.ParseFile();
 
-            string expectedName = "TestTask";
+            string expectedName = "Test";
             string actualName = TaskData.aTaskCollection[0].Name;
 
             Assert.AreEqual(expectedName, actualName);
