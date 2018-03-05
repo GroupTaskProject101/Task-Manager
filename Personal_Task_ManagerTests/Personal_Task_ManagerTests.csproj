@@ -57,8 +57,11 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Managers\CSVManagerTests.cs" />
+    <Compile Include="Managers\FileManagerTest.cs" />
     <Compile Include="Managers\FileManagerTests.cs" />
+    <Compile Include="Managers\GroupManagerTest.cs" />
     <Compile Include="Managers\JsonManagerTests.cs" />
+    <Compile Include="Managers\TaskManagerTest.cs" />
     <Compile Include="Managers\TextManagerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
